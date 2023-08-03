@@ -35,4 +35,15 @@ const displayPokemon = (pokemon) => {
     pokedex.innerHTML = pokemonHTMLstring;
 };
 
+const selectPokemon = async (id) => {
+  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const res = await fetch(url);
+  const mon = await res.json();
+  displayPopup(mon);
+}
+
+const displayPopup = (mon) => {
+  const type = mon.types.map( type => type.type.name.join("|"));
+
+}
 fetchPokemon();

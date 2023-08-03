@@ -1,6 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
 
+
+* {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
 .homebutton {
     right: 0px;
     width: 50px;
@@ -29,6 +38,18 @@
     border-color: #42B6F3;
     color: #42B6F3;
     text-decoration: none;
+}
+
+.sidenav {
+    margin: 0;
+}
+
+.sidenav a {
+    text-decoration: none;
+}
+
+.sidenav a:hover {
+    color: #0062FF;
 }
 
 body {
