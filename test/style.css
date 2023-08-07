@@ -1,0 +1,215 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.homebutton {
+    right: 0px;
+    width: 50px;
+    padding-top: 20px;
+    padding-right: 20px;
+    position: fixed;
+    z-index: 2;}
+	
+.homebutton a {
+    display: block;
+    margin-bottom: 1em;
+    padding: 0.3em 1.25em;
+    border: 1px solid #c2c7cc;
+    font-family: 'Fira-Sans', sans-serif;
+    font-size: .6em;
+    line-height: 1.667em;
+    text-decoration: none;
+    color: #8a9199;
+    cursor: pointer;
+    background: #fff;
+    transition: color,border-color ease 0.3s;
+    border-radius: 2em;
+}
+
+.homebutton a:hover {
+    border-color: #42B6F3;
+    color: #42B6F3;
+    text-decoration: none;
+}
+
+.sidenav {
+    margin: 0;
+}
+
+.sidenav a {
+    text-decoration: none;
+}
+
+.sidenav a:hover {
+    color: #0062FF;
+}
+
+body {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Sans", sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    background-color: #ffffff;
+    list-style: none;
+    padding: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+    text-transform: capitalize;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 5px 20px 10px rgb(214, 211, 211);
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.card:hover {
+    transition: all 0.2s ease;
+    transform: scale(0.95);
+}
+
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 15px;
+}
+
+
+span {
+    font-size: 20px;
+    color: rgb(105, 104, 104);
+    font-weight: 400;
+}
+
+.card-title {
+    font-weight: 700;
+    color: #333
+}
+
+li img {
+    margin: auto 0;
+    width: 150px;
+}
+
+/* Define type box styles */
+
+.pokemon.types {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-subtitle {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Define type colors using class names */
+
+.type-normal {
+    background-color: #a8a878;
+    color: black;
+}
+
+.type-fighting {
+    background-color: #c03028;
+    color: white;
+}
+
+.type-flying {
+    background-color: #a890f0;
+    color: white;
+}
+
+.type-poison {
+    background-color: #a040a0;
+    color: white;
+}
+
+.type-ground {
+    background-color: #e0c068;
+    color: black;
+}
+
+.type-rock {
+    background-color: #b8a038;
+    color: black;
+}
+
+.type-bug {
+    background-color: #a8b820;
+    color: black;
+}
+
+.type-ghost {
+    background-color: #705898;
+    color: white;
+}
+
+.type-steel {
+    background-color: #b8b8d0;
+    color: black;
+}
+
+.type-fire {
+    background-color: #f08030;
+    color: white;
+}
+
+.type-water {
+    background-color: #6890f0;
+    color: white;
+}
+
+.type-grass {
+    background-color: #78c850;
+    color: black;
+}
+
+.type-electric {
+    background-color: #f8d030;
+    color: black;
+}
+
+.type-psychic {
+    background-color: #f85888;
+    color: white;
+}
+
+.type-ice {
+    background-color: #98d8d8;
+    color: black;
+}
+
+.type-dragon {
+    background-color: #7038f8;
+    color: white;
+}
+
+.type-dark {
+    background-color: #705848;
+    color:white;
+}
+
+.type.fairy {
+    background-color: #ee99ac;
+    color: white;
+}

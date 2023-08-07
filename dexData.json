@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "name": "Bulbasaur",
+        "types": ["Grass","Poison"],
+        "game": "Green",
+        "location": "Pallet Town"
+    },
+    {
+        "id": 2,
+        "name": "Ivysaur",
+        "types": ["Grass","Poison"],
+        "game": "Green",
+        "location": "Pallet Town"
+    },
+    {
+        "id": 3,
+        "name": "Venusaur",
+        "types": ["Grass","Poison"],
+        "game": "Green",
+        "location": "Pallet Town"
+    },
+    {
+        "id": 4,
+        "name": "Charmander",
+        "types": ["Fire"],
+        "game": "Red",
+        "location": "Pallet Town"
+    }
+
+]
