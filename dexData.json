@@ -26,6 +26,13 @@
         "types": ["Fire"],
         "game": "Red",
         "location": "Pallet Town"
+    },
+    {
+        "id": 5,
+        "name": "Charmeleon",
+        "types": ["Fire"],
+        "game": "Red",
+        "location":"Pallet Town" 
     }
 
 ]
