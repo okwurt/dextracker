@@ -41,15 +41,36 @@
 }
 
 .sidenav {
-    margin: 0;
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff1111;
+    padding: 10px 0;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
 }
 
 .sidenav a {
+    color: white;
     text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
 }
 
 .sidenav a:hover {
     color: #0062FF;
+}
+
+@media (max-width: 768px) {
+    .sidenav {
+        flex-direction: column;
+    }
+
+    .sidenav a {
+        margin: 5px 0;
+    }
 }
 
 body {
@@ -108,3 +129,43 @@ li img {
     margin: auto 0;
     width: 150px;
 }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .pokemon-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    max-width: 200px;
+  }
+  
+  /* Import sidebar styles */
+  .import-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: #f2f2f2;
+    box-shadow: -3px 0 6px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+  }
+  
+  .import-sidebar.active {
+    right: 0;
+  }
+  

@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "dexNumber": 1,
         "name": "Bulbasaur",
         "types": ["Grass","Poison"],
         "game": "Green",

@@ -35,15 +35,42 @@ const displayPokemon = (pokemon) => {
     pokedex.innerHTML = pokemonHTMLstring;
 };
 
-const selectPokemon = async (id) => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-  const res = await fetch(url);
-  const mon = await res.json();
-  displayPopup(mon);
-}
-
-const displayPopup = (mon) => {
-  const type = mon.types.map( type => type.type.name.join("|"));
-
-}
 fetchPokemon();
+
+// Display import sidebar when the import button is clicked
+const openSidebarbutton = 
+document.getElementById('openSidebar');
+const sidebarForm = document.getElementById('sidebarForm');
+
+openSidebarbutton.addEventListener('click', function() {
+  sidebarForm.classList.toggle('hidden');
+});
+  
+
+// Fetch Pokémon collection data and display cards
+fetch('pokemon-collection.json')
+  .then(response => response.json())
+  .then(data => {
+    const collectionContainer = document.getElementById('collection-container');
+    data.forEach(pokemon => {
+      const card = createPokemonCard(pokemon);
+      collectionContainer.appendChild(card);
+    });
+  })
+  .catch(error => console.error('Error fetching collection data:', error));
+
+// Function to create a Pokémon card based on the data
+function createPokemonCard(pokemon) {
+  const card = document.createElement('div');
+  card.className = 'pokemon-card';
+  card.innerHTML = `
+    <h2>${pokemon.name}</h2>
+    <p>Dex Number: ${pokemon.dexNumber}</p>
+    <p>Type: ${pokemon.type}</p>
+    <p>Game: ${pokemon.game}</p>
+    <p>Location: ${pokemon.location}</p>
+    <p>Capture Method: ${pokemon.captureMethod}</p>
+    <!-- Add more information as needed -->
+  `;
+  return card;
+}
