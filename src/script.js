@@ -113,6 +113,26 @@ const handleFormSubmit = (event) => {
   importData(importedData);
 };
 
+function updateCollectionData(newData) {
+  const url = 'https://github.com/okwurt/dextracker/blob/main/pokemon-collection.json'; // Replace with the actual URL of your JSON file
+  const options = {
+    method: 'PUT', // Use the appropriate HTTP method (PUT or PATCH)
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newData),
+  };
+
+  fetch(url, options)
+    .then(response => response.json())
+    .then(updatedData => {
+      console.log('Collection data updated:', updatedData);
+    })
+    .catch(error => {
+      console.error('Error updating collection data:', error);
+    });
+}
+
 // Add a submit event listener to the form
 const importForm = document.getElementById('import-form');
 importForm.addEventListener('submit', handleFormSubmit);
