@@ -11,5 +11,17 @@
         "location": "Ramanas Park",
         "captureMethod": "Master Ball"
     }
+    {
+        "dexNumber": 493,
+         "nickname": "Proteus",
+         "genderSymbol": "Genderless",
+         "name": "Arceus",
+        "types": ["Normal"],
+        "nature": "Docile",
+        "ability": "Multitype",
+        "game": "Brilliant Diamond",
+        "location": "Hall of Origin",
+        "captureMethod": "Master Ball"
+    }
 
 ]
