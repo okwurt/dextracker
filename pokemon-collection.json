@@ -1,11 +1,15 @@
 [
     {
-        "dexNumber": 1,
-         "nickname": "Verdana",
-         "name": "Bulbasaur",
-        "types": ["Grass","Poison"],
-        "game": "Green",
-        "location": "Pallet Town"
+        "dexNumber": 245,
+         "nickname": "Qiirin",
+         "genderSymbol": "Genderless",
+         "name": "Suicune",
+        "types": ["Water"],
+        "nature": "Modest",
+        "ability": "Inner Focus",
+        "game": "Brilliant Diamond",
+        "location": "Ramanas Park",
+        "captureMethod": "Master Ball"
     }
 
 ]

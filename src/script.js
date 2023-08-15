@@ -71,9 +71,15 @@ const handleFormSubmit = (event) => {
 
   // Extract data from form inputs
   const dexNumber = document.getElementById('dex-number').value;
-  const nickname = document.getElementById('pokemon-nickname').value;
-  const name = document.getElementById('pokemon-name').value;
+  const nickname = document.getElementById('nickname').value;
   const genderSymbol = document.getElementById('gender-symbol').value;
+  const name = document.getElementById('pokemon-name').value;
+  const types = document.getElementById('type').value.split(','); // Split types into an array
+  const nature = document.getElementById('nature').value;
+  const ability = document.getElementById('ability').value;
+  const game = document.getElementById('game').value;
+  const location = document.getElementById('location').value;
+  const captureMethod = document.getElementById('captureMethod').value;
 
   // Extract other form inputs...
 
