@@ -1,31 +1,31 @@
 [
     {
-        "id": 1,
+        "dex-number": 1,
         "name": "Bulbasaur",
         "types": ["Grass","Poison"]
     },
     {
-        "id": 2,
+        "dex-number": 2,
         "name": "Ivysaur",
         "types": ["Grass","Poison"]
     },
     {
-        "id": 3,
+        "dex-number": 3,
         "name": "Venusaur",
         "types": ["Grass","Poison"]
     },
     {
-        "id": 4,
+        "dex-number": 4,
         "name": "Charmander",
         "types": ["Fire"]
     },
     {
-        "id": 5,
+        "dex-number": 5,
         "name": "Charmeleon",
         "types": ["Fire"]
     },
     {
-        "id": 245,
+        "dex-number": 245,
         "name": "Suicune",
         "types": ["Water"]
     }

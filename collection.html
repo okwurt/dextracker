@@ -1,32 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css">
-    <title>Collection</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Collection</title>
 </head>
 <body>
-    <header>
-        <h1>Collection</h1>
-        <div class="sidebar"> 
-            <button id="openSidebar">Import Pokemon</button> 
+  <header>
+    <h1>Collection</h1>
+    <button id="import-button">Import Pokémon</button>
+  </header>
+  <div id="collection-container" class="collection">
+    <div class="card">
+        <div class="header">
+          <span class="dex-number">#001</span>
+          <h2 class="pokemon-name">Asparagus <span class="gender-symbol">♂</span></h2>
         </div>
+        <div class="image-container">
+          <img src="sprites/games/home/shiny/bulbasaur.png" alt="Bulbasaur">
+        </div>
+        <div class="attributes">
+          <div class="attribute">
+            <span class="label">Name:</span>
+            <span class="value">Bulbasaur</span>
+          </div>
+          <div class="attribute">
+            <span class="label">Type:</span>
+            <span class="value type">Grass</span>
+            <span class="separator">|</span>
+            <span class="value type">Poison</span>
+          </div>
+          <div class="attribute">
+            <span class="label">Nature:</span>
+            <span class="value">Modest</span>
+          </div>
+          <div class="attribute">
+            <span class="label">Ability:</span>
+            <span class="value">Overgrow</span>
+          </div>
+        </div>
+      </div>
+      
+      <div id="import-sidebar" class="import-sidebar">
+        <div id="collection-form" class="collection-form">
+          <h2>Add New Pokémon to Your Collection</h2>
+          <form id="pokemon-form">
+            <label for="dex-number">Dex Number:</label>
+            <input type="text" id="dex-number" name="dex-number" required>
             
-         <div id="sidebarForm" class="hidden"> 
-              <form id="importForm">
-                <label for= "pokemonName">Name:</label>
-                <input type="text" id="pokemonName" name="pokemonName" required>
+            <label for="nickname">Nickname:</label>
+            <input type="text" id="nickname" name="nickname">
+            
+            <label for="gender-symbol">Gender Symbol:</label>
+            <input type="text" id="gender-symbol" name="gender-symbol">
+            
+            <label for="pokemon-name">Name:</label>
+            <input type="text" id="pokemon-name" name="pokemon-name" required>
+            
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required>
+            
+            <label for="nature">Nature:</label>
+            <input type="text" id="nature" name="nature">
+            
+            <label for="ability">Ability:</label>
+            <input type="text" id="ability" name="ability">
+            
+            <label for="game">Game:</label>
+            <input type="text" id="game" name="game" required>
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+            
+            <label for="captureMethod">Ball:</label>
+            <input type="text" id="captureMethod" name="captureMethod">
 
-                <label for="nature"></label>
-            </form>
-        </button>
+            <br>
+            <br>
+      
+            <button type="submit" id="add-pokemon-button">Add Pokémon</button>
+          </form>
         </div>
-        </div>
-    </header>
-   
-    </div>
-
-    <script src="src/script.js"></script> 
+      </div>  
+  </div>
+  <script src="src/script.js"></script>
 </body>
 </html>

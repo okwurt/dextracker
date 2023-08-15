@@ -1,0 +1,11 @@
+[
+    {
+        "dexNumber": 1,
+         "nickname": "Verdana",
+         "name": "Bulbasaur",
+        "types": ["Grass","Poison"],
+        "game": "Green",
+        "location": "Pallet Town"
+    }
+
+]

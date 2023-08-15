@@ -147,21 +147,83 @@ li img {
     padding: 1rem;
   }
   
-  .pokemon-card {
-    border: 1px solid #ccc;
-    padding: 1rem;
-    max-width: 200px;
+  .card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
   }
   
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .header {
+    padding: 10px;
+    background-color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .dex-number {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .pokemon-name {
+    font-size: 18px;
+  }
+  
+  .gender-symbol {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+  
+  .image-container {
+    text-align: center;
+    padding: 10px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  .attributes {
+    padding: 10px;
+  }
+  
+  .attribute {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .label {
+    flex: 1;
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .value {
+    flex: 2;
+    font-size: 14px;
+  }
+  
+
   /* Import sidebar styles */
-  .import-sidebar {
+ /* Additional styling for the sidebar */
+.import-sidebar {
     position: fixed;
     top: 0;
     right: -300px;
     width: 300px;
     height: 100%;
-    background-color: #f2f2f2;
-    box-shadow: -3px 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: right 0.3s ease-in-out;
   }
   
@@ -169,3 +231,69 @@ li img {
     right: 0;
   }
   
+  .collection-form {
+    padding: 20px;
+  }
+  
+/* Sidebar header */
+.import-sidebar h2 {
+    font-size: 1.5rem;
+    margin: 20px 0 10px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* Form styles */
+#import-form {
+    padding: 20px;
+  }
+
+  /* Adjust label styles to display inline-block */
+#import-form label {
+    display: inline-block;
+    width: 100px; /* Adjust the width to your preference */
+    margin-right: 10px; /* Adjust the spacing between labels and inputs */
+  }
+  
+  /* Form input styles */
+  #import-form input[type="text"],
+  #import-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Form button styles */
+  #import-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+  }
+  
+  #import-form button:hover {
+    background-color: #555;
+  }
+  
+  /* Close button */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #888;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: #333;
+  }
