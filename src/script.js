@@ -83,20 +83,30 @@ const handleFormSubmit = (event) => {
 
   // Extract other form inputs...
 
+  console.log('Dex Number:', dexNumber);
+  console.log('Nickname:', nickname);
+  console.log('Gender:', genderSymbol);
+  console.log('Name:', name);
+  console.log('Type:', types);
+  console.log('Nature:', nature);
+  console.log('Ability:', ability);
+  console.log('Game:', game);
+  console.log('Location:', location);
+  console.log('Ball:', captureMethod);
+
   // Create the Pokémon data object
   const importedData = {
     dexNumber,
     nickname,
     genderSymbol,
     name,
-    types,
+    types: types.split(', '), // Split the types string into an array
     nature,
     ability,
     game,
     location,
     captureMethod
-
-    // Other attributes...
+    // ... Other attributes ...
   };
 
   // Call the importData function with the imported data
