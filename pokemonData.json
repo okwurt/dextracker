@@ -25,6 +25,11 @@
         "types": ["Fire"]
     },
     {
+        "dex-number": 6,
+        "name": "Charizard",
+        "types": ["Fire"]
+    },
+    {
         "dex-number": 245,
         "name": "Suicune",
         "types": ["Water"]
