@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <div class="homebutton">
-      <a href="index.html">Home</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraDex Tracker</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="sidebar">
+      <div class="sidebar-header">
+         <h2>Dex Tracker</h2>
+        </div>
+        <ul class="sidebar-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Origin Dex</a></li>
+          <li><a href="#">Shiny Living Dex</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
       </div>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="src/style.css"></link>
-     <title>Dex Tracker</title>
-  </head>
-  <body>
-    <h1>Dex Tracker
-    </h1>
-    <nav>
-     <div class="sidenav">
-      <a href="kanto.html">Kanto</a>
-      <a href="johto.html">Johto</a>
-      <a href="hoenn.html">Hoenn</a>
-      <a href="sinnoh.html">Sinnoh</a>
-      <a href="unova.html">Unova</a>
-      <a href="kalos.html">Kalos</a>
-      <a href="alola.html">Alola</a>
-      <a href="galar.html">Galar</a>
-      <a href="hisui.html">Hisui</a>
-      <a href="paldea.html">Paldea</a>
-      <a href="collection.html">Collection</a>
-     </div>
-    </nav>
-     <div id="pokedex"></div>
-    <script src="src/script.js"></script>
-  </body>
+
+      <div class="search-container">
+        <input type="text" id="pokemonSearch" placeholder="Search Pokémon...">
+          <ul id="results-list"></ul>
+      </div>
+    <script src="src/main.js"></script>
+</body>
 </html>
+
