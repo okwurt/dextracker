@@ -881,6 +881,18 @@
         "displayName": "Unown R",
         "type": ["Psychic"],
         "isBattleForm": false
+      },
+      {
+        "formName": "S",
+        "displayName": "Unown S",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "T",
+        "displayName": "Unown T",
+        "type": ["Psychic"],
+        "isBattleForm": false
       }
     ]
   }

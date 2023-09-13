@@ -172,3 +172,21 @@ body{
     cursor: pointer;
 }
 
+#addPokemonBtn {
+
+    background-color: #34495e;
+    border: none;
+    color: #ecf0f1;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#addPokemonBtn:hover {
+    background-color: #2c3e50;
+}
+
+
+

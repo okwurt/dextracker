@@ -15,12 +15,29 @@
           <li><a href="#">Home</a></li>
           <li><a href="#">Origin Dex</a></li>
           <li><a href="#">Shiny Living Dex</a></li>
-          <li><a href="#">Settings</a></li>
+          <li>
+            <button id="addPokemonBtn">Add Pokémon</button>
+          </li>
         </ul>
       </div>
 
+      <div class="pokemon-modal" 
+      id="addPokemonModal">
+      <div class="modal-content">
+        <span class="closeModalBtn"
+        id="closeModal">&times;</span>
+        <h2>Add Pokémon</h2>
+        <form id="addPokemonForm">
+          <label for="pokemonName">Pokémon:</label>
+          <input type="text" id="pokemonName" name="pokemonName" autocomplete="off"> 
+          <div id="pokemonNameDropdown" class="suggestion"></div>
+          <button type="submit">Add</button>
+      </form>
+      </div>
+    </div>
+
       <div class="search-container">
-        <input type="text" id="pokemonSearch" placeholder="Search Pokémon...">
+        <input type="text" id="pokemonSearch" placeholder="Search Pokémon">
           <ul id="results-list"></ul>
       </div>
     <script src="src/main.js"></script>
