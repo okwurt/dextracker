@@ -755,6 +755,29 @@
     "evolutions": []
   },
   {
+    "id":151,
+    "name": "Mew",
+    "species": "New Species Pokemon",
+    "type": ["Psychic"],
+    "height": "0.41 m",
+    "weight": "4.0 kg",
+    "abilities": ["Synchronize"],
+    "eggGroups": ["Undiscovered"],
+    "baseStats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 100,
+      "specialAttack": 100,
+      "specialDefense": 100,
+      "speed": 100,
+      "total": 600
+    },
+    "evYield": [{"hp": 3}],
+    "forms":[],
+    "preEvolutions": [],
+    "evolutions": []
+  },
+  {
     "id": 201,
     "name": "Unown",
     "species": "Symbol Pokemon",
