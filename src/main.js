@@ -1,178 +1,145 @@
+// Variables
 let pokemonList = [];
-let activeCollection = ""; // To track the currently active collection
+let currentCollection = [];
+let selectedPokemonStaticData = null;
 
+// DOM Elements
 const addPokemonBtn = document.getElementById('addPokemonBtn');
 const addPokemonModal = document.getElementById('addPokemonModal');
 const closeModalBtn = document.getElementById('closeModal');
 const addPokemonForm = document.getElementById('addPokemonForm');
 const pokemonNameInput = document.getElementById('pokemonName');
 const pokemonNameDropdown = document.getElementById('pokemonNameDropdown');
+const addDetailsModal = document.getElementById('addDetailsModal');
+const closeDetailsModalBtn = document.getElementById('closeDetailsModal');
+const addDetailsForm = document.getElementById('addDetailsForm');
+const moves = [
+  formData.get("move1"),
+  formData.get("move2"),
+  formData.get("move3"),
+  formData.get("move4")
+].filter(move => move); // This filter will remove any empty strings, in case not all move fields are filled out.
 
-// Fetch the Pokémon data from your JSON
+
+// Fetch Pokémon data from JSON
 fetch('data/pokemonData.json')
-    .then(response => response.json())
-    .then(data => {
-        pokemonList = data;
-    })
-    .catch(error => {
-        console.error("Error fetching Pokémon data:", error);
-    });
+  .then(response => response.json())
+  .then(data => {
+    pokemonList = data;
+  })
+  .catch(error => {
+    console.error("Error fetching Pokémon data:", error);
+  });
 
+// Event: Search Pokémon
 document.getElementById('pokemonSearch').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    let filteredList = [];
-
-    if (searchTerm) {
-        filteredList = pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm));
-    }
-
-    displayResults(filteredList);
+  const searchTerm = e.target.value.toLowerCase();
+  const filteredList = pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm));
+  displayResults(filteredList);
 });
 
+// Function: Display Search Results
 function displayResults(list) {
-    const resultsList = document.getElementById('results-list');
-    resultsList.innerHTML = '';
-
-    list.forEach(pokemon => {
-        const listItem = document.createElement('li');
-
-        const spriteImg = document.createElement('img');
-        spriteImg.src = `https://raw.githubusercontent.com/okwurt/dextracker/main/sprites/icons/${pokemon.name.toLowerCase()}.png`;
-        spriteImg.alt = pokemon.name + " sprite";
-        spriteImg.width = 30;
-        listItem.appendChild(spriteImg);
-
-        const nameSpan = document.createElement('span');
-        nameSpan.textContent = pokemon.name;
-        listItem.appendChild(nameSpan);
-
-        listItem.addEventListener('click', function() {
-            document.getElementById('pokemonSearch').value = pokemon.name;
-            resultsList.innerHTML = '';
-        });
-
-        resultsList.appendChild(listItem);
+  const resultsList = document.getElementById('results-list');
+  resultsList.innerHTML = '';
+  list.forEach(pokemon => {
+    const listItem = document.createElement('li');
+    const spriteImg = document.createElement('img');
+    spriteImg.src = `https://raw.githubusercontent.com/okwurt/dextracker/main/sprites/icons/${pokemon.name.toLowerCase()}.png`;
+    spriteImg.alt = pokemon.name + " sprite";
+    spriteImg.width = 30;
+    listItem.appendChild(spriteImg);
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = pokemon.name;
+    listItem.appendChild(nameSpan);
+    listItem.addEventListener('click', function() {
+      document.getElementById('pokemonSearch').value = pokemon.name;
+      resultsList.innerHTML = '';
     });
+    resultsList.appendChild(listItem);
+  });
 }
 
+// Event: Open Add Pokémon Modal
 document.getElementById("addPokemonBtn").addEventListener("click", () => {
   addPokemonModal.style.display = "block";
 });
 
+// Event: Close Add Pokémon Modal
 closeModalBtn.addEventListener("click", () => {
   addPokemonModal.style.display = "none";
   addPokemonForm.reset();
 });
 
-addPokemonForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const formData = new FormData(addPokemonForm);
-  const pokemonName = formData.get("pokemonName");
-
-  if (activeCollection === "Origin Dex") {
-    // Add to Origin Dex
-  } else if (activeCollection === "Shiny Living Dex") {
-    // Add to Shiny Living Dex
+// Event: Select Pokémon from Dropdown in First Modal
+pokemonNameDropdown.addEventListener("click", (e) => {
+  const selectedPokemonName = e.target.textContent;
+  const selectedPokemon = pokemonList.find(p => p.name === selectedPokemonName);
+  if (selectedPokemon) {
+    selectedPokemonStaticData = {
+      id: selectedPokemon.id,
+      name: selectedPokemon.name,
+      species: selectedPokemon.species,
+      type: selectedPokemon.type,
+      height: selectedPokemon.height,
+      weight: selectedPokemon.weight,
+      abilities: selectedPokemon.abilities,
+      eggGroups: selectedPokemon.eggGroups,
+      baseStats: selectedPokemon.baseStats,
+      evYield: selectedPokemon.evYield,
+      forms: selectedPokemon.forms,
+      preEvolutions: selectedPokemon.preEvolutions,
+      evolutions: selectedPokemon.evolutions,
+    };
+    // Open the second modal for additional details
+    addDetailsModal.style.display = "block";
   }
-
-  addPokemonModal.style.display = "none";
-  addPokemonForm.reset();
 });
 
-pokemonNameInput.addEventListener("input", () => {
-  const inputValue = pokemonNameInput.value.toLowerCase();
-  const suggestions = filterPokemonSuggestions(inputValue);
-
-  pokemonNameDropdown.innerHTML = "";
-
-  suggestions.forEach((suggestion) => {
-    const suggestionItem = document.createElement("div");
-    suggestionItem.textContent = suggestion;
-    suggestionItem.addEventListener("click", () => {
-      pokemonNameInput.value = suggestion;
-      pokemonNameDropdown.innerHTML = "";
-    });
-    pokemonNameDropdown.appendChild(suggestionItem);
-  });
+// Event: Submit Details in Second Modal
+addDetailsForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const formData = new FormData(addDetailsForm);
+  const pokemonNickname = formData.get("pokemonNickname");
+  // ... (get other form data)
+  const existingPokemonIndex = currentCollection.findIndex(p => p.id === selectedPokemonStaticData.id);
+  if (existingPokemonIndex !== -1) {
+    // Update existing Pokémon data
+    currentCollection[existingPokemonIndex].nickname = pokemonNickname;
+    // ... (update other properties)
+  } else {
+    // Merge static and user data and add to currentCollection
+    const mergedPokemonData = {
+      ...selectedPokemonStaticData,
+      nickname: formData.get("pokemonNickname"),
+      level: formData.get("pokemonLevel"),
+      gender: formData.get("pokemonGender"),
+      forme: formData.get("pokemonForme"),
+      shiny: formData.get("pokemonShiny"),
+      ability: formData.get("pokemonAbility"),
+      nature: formData.get("pokemonNature"),
+      moves: moves,
+      iv: formData.get("pokemonIV"),
+      game: formData.get("pokemonGame"),
+      location: formData.get("pokemonLocation"),
+      ball: formData.get("pokemonBall"),
+    };
+    currentCollection.push(mergedPokemonData);
+  }
+  // Clear the temporary variable
+  selectedPokemonStaticData = null;
+  // Update merged data and display
+  displayMergedData();
+  // Close the modal
+  addDetailsModal.style.display = "none";
+  addDetailsForm.reset();
 });
 
-function filterPokemonSuggestions(input) {
-  return pokemonList
-    .filter((pokemon) => pokemon.name.toLowerCase().includes(input))
-    .map((pokemon) => pokemon.name);
+// Function: Display Merged Data
+function displayMergedData() {
+  // Logic to display the merged data (both static and user data) in the desired format
+  // This could be in the form of a list, cards, or any other UI component
 }
 
-// Event listeners for collection links in the sidebar
-document.querySelector("a[href='#Origin Dex']").addEventListener("click", () => {
-  activeCollection = "Origin Dex";
-  loadCollection("Origin Dex");
-});
+// ... (any other functions or event listeners you might have)
 
-document.querySelector("a[href='#Shiny Living Dex']").addEventListener("click", () => {
-  activeCollection = "Shiny Living Dex";
-  loadCollection("Shiny Living Dex");
-});
-
-function loadCollection(collectionName) {
-  const jsonPath = collectionName === "Origin Dex" ? "col/originDex.json" : "col/shinyLivingDex.json";
-  fetch(jsonPath)
-    .then(response => response.json())
-    .then(data => {
-      const listContainer = document.getElementById('listContainer');
-      const cardContainer = document.getElementById('cardContainer');
-      listContainer.innerHTML = ''; // Clear previous content
-      cardContainer.innerHTML = ''; // Clear previous content
-
-      data.forEach(pokemon => {
-        // Populate List View
-        const listItem = document.createElement('div');
-        listItem.className = 'pokemon-item';
-
-        const spriteImgList = document.createElement('img');
-        spriteImgList.src = `https://raw.githubusercontent.com/okwurt/dextracker/main/sprites/icons/${pokemon.name.toLowerCase()}.png`;
-        spriteImgList.alt = pokemon.name + " sprite";
-        spriteImgList.width = 50;
-        listItem.appendChild(spriteImgList);
-
-        const nameSpanList = document.createElement('span');
-        nameSpanList.textContent = pokemon.name;
-        listItem.appendChild(nameSpanList);
-
-        listContainer.appendChild(listItem);
-
-        // Populate Card View
-        const cardItem = document.createElement('div');
-        cardItem.className = 'pokemon-card';
-
-        const spriteImgCard = document.createElement('img');
-        spriteImgCard.src = spriteImgList.src;
-        spriteImgCard.alt = spriteImgList.alt;
-        spriteImgCard.width = 100;
-        cardItem.appendChild(spriteImgCard);
-
-        const nameSpanCard = document.createElement('h3');
-        nameSpanCard.textContent = pokemon.name;
-        cardItem.appendChild(nameSpanCard);
-
-        cardContainer.appendChild(cardItem);
-      });
-    })
-    .catch(error => {
-      console.error("Error fetching collection data:", error);
-    });
-}
-
-// Event listeners for view toggle buttons
-document.getElementById("listViewBtn").addEventListener("click", () => {
-  document.getElementById('listContainer').classList.add('active');
-  document.getElementById('cardContainer').classList.remove('active');
-  document.getElementById('listViewBtn').classList.add('active');
-  document.getElementById('cardViewBtn').classList.remove('active');
-});
-
-document.getElementById("cardViewBtn").addEventListener("click", () => {
-  document.getElementById('cardContainer').classList.add('active');
-  document.getElementById('listContainer').classList.remove('active');
-  document.getElementById('cardViewBtn').classList.add('active');
-  document.getElementById('listViewBtn').classList.remove('active');
-});
