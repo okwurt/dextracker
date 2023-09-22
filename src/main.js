@@ -89,10 +89,6 @@ function validateFormData(formData) {
 
   // Validate the nickname field
   const nickname = formData.get("pokemonNickname");
-  if (!nickname) {
-    errors.push("Nickname is required");
-  } else if (nickname.length > 20) {
-    errors.push("Nickname must be 20 characters or less");
   }
 
   // Validate the level field
@@ -104,7 +100,6 @@ function validateFormData(formData) {
   }
 
   // Validate other fields as needed
-
   return errors;
 }
 
