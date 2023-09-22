@@ -3,97 +3,115 @@ let pokemonList = [];
 let currentCollection = [];
 let selectedPokemonStaticData = null;
 
-// DOM Elements
+// Constants
 const addPokemonBtn = document.getElementById('addPokemonBtn');
 const addPokemonModal = document.getElementById('addPokemonModal');
-const closeModalBtn = document.getElementById('closeModal');
+const closeModalBtn = document.getElementById('addPokemonCloseBtn');
 const addPokemonForm = document.getElementById('addPokemonForm');
 const pokemonNameInput = document.getElementById('pokemonName');
-const pokemonNameDropdown = document.getElementById('pokemonNameDropdown');
 const addDetailsModal = document.getElementById('addDetailsModal');
 const closeDetailsModalBtn = document.getElementById('closeDetailsModal');
 const addDetailsForm = document.getElementById('addDetailsForm');
-const moves = [
-  formData.get("move1"),
-  formData.get("move2"),
-  formData.get("move3"),
-  formData.get("move4")
-].filter(move => move); // This filter will remove any empty strings, in case not all move fields are filled out.
+const nextBtn = document.getElementById("nextBtn");
 
-
-// Fetch Pokémon data from JSON
-fetch('data/pokemonData.json')
-  .then(response => response.json())
-  .then(data => {
-    pokemonList = data;
-  })
-  .catch(error => {
-    console.error("Error fetching Pokémon data:", error);
-  });
-
-// Event: Search Pokémon
-document.getElementById('pokemonSearch').addEventListener('input', function(e) {
-  const searchTerm = e.target.value.toLowerCase();
-  const filteredList = pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm));
-  displayResults(filteredList);
-});
-
-// Function: Display Search Results
-function displayResults(list) {
-  const resultsList = document.getElementById('results-list');
-  resultsList.innerHTML = '';
-  list.forEach(pokemon => {
-    const listItem = document.createElement('li');
-    const spriteImg = document.createElement('img');
-    spriteImg.src = `https://raw.githubusercontent.com/okwurt/dextracker/main/sprites/icons/${pokemon.name.toLowerCase()}.png`;
-    spriteImg.alt = pokemon.name + " sprite";
-    spriteImg.width = 30;
-    listItem.appendChild(spriteImg);
-    const nameSpan = document.createElement('span');
-    nameSpan.textContent = pokemon.name;
-    listItem.appendChild(nameSpan);
-    listItem.addEventListener('click', function() {
-      document.getElementById('pokemonSearch').value = pokemon.name;
-      resultsList.innerHTML = '';
-    });
-    resultsList.appendChild(listItem);
-  });
-}
-
-// Event: Open Add Pokémon Modal
-document.getElementById("addPokemonBtn").addEventListener("click", () => {
+// When the user clicks the Add Pokemon button, open the Add Pokemon modal
+addPokemonBtn.addEventListener("click", () => {
+  console.log("Add Pokemon button clicked");
   addPokemonModal.style.display = "block";
 });
 
-// Event: Close Add Pokémon Modal
-closeModalBtn.addEventListener("click", () => {
+// When the user clicks the close button, hide the modal
+addPokemonCloseBtn.addEventListener("click", () => {
+  addPokemonModal.style.display = "none";
+});
+
+// When the user clicks outside the modal, hide the modal
+window.addEventListener("click", (event) => {
+  if (event.target == addPokemonModal) {
+    addPokemonModal.style.display = "none";
+  }
+});
+
+// Event: Select Pokémon from Dropdown in First Modal
+document.addEventListener("DOMContentLoaded", () => {
+  // Get the dropdown for selecting a Pokémon
+  const pokemonNameDropdown = document.getElementById("pokemonNameDropdown");
+
+  // Add an event listener to the dropdown
+  pokemonNameDropdown.addEventListener("click", (e) => {
+    const selectedPokemonName = e.target.textContent;
+    const selectedPokemon = pokemonList.find(p => p.name === selectedPokemonName);
+    if (selectedPokemon) {
+      selectedPokemonStaticData = {
+        id: selectedPokemon.id,
+        name: selectedPokemon.name,
+        species: selectedPokemon.species,
+        type: selectedPokemon.type,
+        height: selectedPokemon.height,
+        weight: selectedPokemon.weight,
+        abilities: selectedPokemon.abilities,
+        eggGroups: selectedPokemon.eggGroups,
+        baseStats: selectedPokemon.baseStats,
+        evYield: selectedPokemon.evYield,
+        forms: selectedPokemon.forms,
+        preEvolutions: selectedPokemon.preEvolutions,
+        evolutions: selectedPokemon.evolutions,
+      };
+      // Open the second modal for additional details
+      addDetailsModal.style.display = "block";
+    }
+  });
+});
+
+// Event: Submit Add Pokémon Form
+addPokemonForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevent the form from submitting normally
+
+  // Validate the form data
+  const formData = new FormData(addPokemonForm);
+  const errors = validateFormData(formData);
+  if (errors.length > 0) {
+    alert(errors.join("\n")); // display the validation errors
+    return; // stop the form submission
+  }
+
+  // Save the form data to local storage
+  localStorage.setItem("formData", JSON.stringify(Object.fromEntries(formData.entries())));
+
+  // Hide the modal and reset the form
   addPokemonModal.style.display = "none";
   addPokemonForm.reset();
 });
 
-// Event: Select Pokémon from Dropdown in First Modal
-pokemonNameDropdown.addEventListener("click", (e) => {
-  const selectedPokemonName = e.target.textContent;
-  const selectedPokemon = pokemonList.find(p => p.name === selectedPokemonName);
-  if (selectedPokemon) {
-    selectedPokemonStaticData = {
-      id: selectedPokemon.id,
-      name: selectedPokemon.name,
-      species: selectedPokemon.species,
-      type: selectedPokemon.type,
-      height: selectedPokemon.height,
-      weight: selectedPokemon.weight,
-      abilities: selectedPokemon.abilities,
-      eggGroups: selectedPokemon.eggGroups,
-      baseStats: selectedPokemon.baseStats,
-      evYield: selectedPokemon.evYield,
-      forms: selectedPokemon.forms,
-      preEvolutions: selectedPokemon.preEvolutions,
-      evolutions: selectedPokemon.evolutions,
-    };
-    // Open the second modal for additional details
-    addDetailsModal.style.display = "block";
+// Function: Validate Form Data
+function validateFormData(formData) {
+  const errors = [];
+
+  // Validate the nickname field
+  const nickname = formData.get("pokemonNickname");
+  if (!nickname) {
+    errors.push("Nickname is required");
+  } else if (nickname.length > 20) {
+    errors.push("Nickname must be 20 characters or less");
   }
+
+  // Validate the level field
+  const level = formData.get("pokemonLevel");
+  if (!level) {
+    errors.push("Level is required");
+  } else if (isNaN(level) || level < 1 || level > 100) {
+    errors.push("Level must be a number between 1 and 100");
+  }
+
+  // Validate other fields as needed
+
+  return errors;
+}
+
+// When the user clicks the "Next" button, hide the first modal and show the second modal
+nextBtn.addEventListener("click", () => {
+  addPokemonModal.style.display = "none";
+  addDetailsModal.style.display = "block";
 });
 
 // Event: Submit Details in Second Modal
@@ -141,5 +159,73 @@ function displayMergedData() {
   // This could be in the form of a list, cards, or any other UI component
 }
 
-// ... (any other functions or event listeners you might have)
+// When the Add Pokemon form is submitted, get the form data
+addPokemonForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(addPokemonForm);
+  const moves = formData.getAll("move").filter(move => move);
+  // ...
+});
 
+// Fetch Pokémon data from JSON
+fetch('data/pokemonData.json')
+  .then(response => response.json())
+  .then(data => {
+    pokemonList = data;
+  })
+  .catch(error => {
+    console.error("Error fetching Pokémon data:", error);
+  });
+
+// Retrieve form data from local storage
+const formData = JSON.parse(localStorage.getItem("formData"));
+
+// Set form values from retrieved data
+if (formData) {
+  addPokemonForm.elements.namedItem("pokemonNickname").value = formData.pokemonNickname;
+  addPokemonForm.elements.namedItem("pokemonLevel").value = formData.pokemonLevel;
+  addPokemonForm.elements.namedItem("pokemonGender").value = formData.pokemonGender;
+  addPokemonForm.elements.namedItem("pokemonForme").value = formData.pokemonForme;
+  addPokemonForm.elements.namedItem("pokemonShiny").checked = formData.pokemonShiny;
+  addPokemonForm.elements.namedItem("pokemonAbility").value = formData.pokemonAbility;
+  addPokemonForm.elements.namedItem("pokemonNature").value = formData.pokemonNature;
+  for (const [name, value] of formData.entries()) {
+    const element = addPokemonForm.elements.namedItem(name);
+    if (element) {
+      if (element.type === "checkbox") {
+        element.checked = value === "true";
+      } else {
+        element.value = value;
+      }
+    }
+  }
+}
+
+// Event: Search Pokémon
+document.getElementById('pokemonSearch').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const filteredList = pokemonList.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm));
+  displayResults(filteredList);
+});
+
+// Function: Display Search Results
+function displayResults(list) {
+  const resultsList = document.getElementById('results-list');
+  resultsList.innerHTML = '';
+  list.forEach(pokemon => {
+    const listItem = document.createElement('li');
+    const spriteImg = document.createElement('img');
+    spriteImg.src = `https://raw.githubusercontent.com/okwurt/dextracker/main/sprites/icons/${pokemon.name.toLowerCase()}.png`;
+    spriteImg.alt = pokemon.name + " sprite";
+    spriteImg.width = 30;
+    listItem.appendChild(spriteImg);
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = pokemon.name;
+    listItem.appendChild(nameSpan);
+    listItem.addEventListener('click', function() {
+      document.getElementById('pokemonSearch').value = pokemon.name;
+      resultsList.innerHTML = '';
+    });
+    resultsList.appendChild(listItem);
+  });
+}

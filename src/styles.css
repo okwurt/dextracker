@@ -187,30 +187,7 @@ body {
     margin-bottom: 5px;
 }
 
-.pokemon-modal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    position: relative;
-    margin: 10% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 500px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.close-btn {
+#addPokemonCloseBtn {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -240,18 +217,83 @@ body {
     display: block;
 }
 
+#addPokemonModal,
+#addDetailsModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#addPokemonModal form,
+#addDetailsModal form {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#addPokemonModal label,
+#addDetailsModal label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+#addPokemonModal input[type="text"],
+#addDetailsModal input[type="text"],
+#addDetailsModal input[type="number"],
+#addDetailsModal select,
+#addDetailsModal input[type="checkbox"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
+#addPokemonModal input[type="submit"],
+#addDetailsModal input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #34495e;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#addPokemonModal input[type="submit"]:hover,
+#addDetailsModal input[type="submit"]:hover {
+  background-color: #2c3e50;
+}
+
 #listContainer, #cardContainer {
     display: none;
 }
 
 .view-toggle {
     display: flex;
-    justify-content: right;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.view-toggle button {
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .view-toggle button {
     padding: 10px 20px;
     border: none;
     background-color: #34495e;
@@ -259,15 +301,63 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.view-toggle button:hover {
+  }
+  
+  .view-toggle button:hover {
     background-color: #2c3e50;
-}
-
-.view-toggle button.active {
+  }
+  
+  .view-toggle button.active {
     background-color: #2c3e50;
-}
+  }
+
+  /* Card View Button */
+#cardViewBtn {
+    background-color: #fff;
+    color: #34495e;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-image: url("card-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+  }
+  
+  #cardViewBtn:hover {
+    background-color: #f2f2f2;
+  }
+  
+  #cardViewBtn.active {
+    background-color: #34495e;
+    color: #fff;
+  }
+  
+  /* List View Button */
+  #listViewBtn {
+    background-color: #fff;
+    color: #34495e;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-image: url("list-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+  }
+  
+  #listViewBtn:hover {
+    background-color: #f2f2f2;
+  }
+  
+  #listViewBtn.active {
+    background-color: #34495e;
+    color: #fff;
+  }
 
 .tooltip {
     position: relative;

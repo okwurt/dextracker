@@ -48,56 +48,58 @@
           <datalist id="pokemonNames">
               <!-- This will be populated with Pokémon names from your JSON -->
           </datalist>
-          <input type="submit" value="Next">
+          <input type="submit" id="nextBtn" value="Next">
       </form>
-  </div>
-    <!-- Second Modal for Additional Details -->
+      <button id="addPokemonCloseBtn">Close</button>
+    </div>
+       <!-- Second Modal for Additional Details -->
     <div id="addDetailsModal">
-      <form id="addDetailsForm">
-          <label for="pokemonNickname">Nickname:</label>
-          <input type="text" id="pokemonNickname" name="pokemonNickname">
-  
-          <label for="pokemonLevel">Level:</label>
-          <input type="number" id="pokemonLevel" name="pokemonLevel">
-  
-          <label for="pokemonGender">Gender:</label>
-          <select id="pokemonGender" name="pokemonGender">
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-          </select>
-  
-          <label for="pokemonForme">Forme:</label>
-          <input type="text" id="pokemonForme" name="pokemonForme">
-  
-          <label for="pokemonShiny">Shiny:</label>
-          <input type="checkbox" id="pokemonShiny" name="pokemonShiny">
-  
-          <label for="pokemonAbility">Ability:</label>
-          <input type="text" id="pokemonAbility" name="pokemonAbility">
-  
-          <label for="pokemonNature">Nature:</label>
-          <input type="text" id="pokemonNature" name="pokemonNature">
-  
-          <label for="pokemonMoves">Moves:</label>
-          <input type="text" placeholder="Move 1" name="pokemonMoves[]">
-          <input type="text" placeholder="Move 2" name="pokemonMoves[]">
-          <input type="text" placeholder="Move 3" name="pokemonMoves[]">
-          <input type="text" placeholder="Move 4" name="pokemonMoves[]">
-  
-          <label for="pokemonIV">IVs:</label>
-          <input type="text" id="pokemonIV" name="pokemonIV">
-  
-          <label for="pokemonGame">Game:</label>
-          <input type="text" id="pokemonGame" name="pokemonGame">
-  
-          <label for="pokemonLocation">Location:</label>
-          <input type="text" id="pokemonLocation" name="pokemonLocation">
-  
-          <label for="pokemonBall">Ball:</label>
-          <input type="text" id="pokemonBall" name="pokemonBall">
-  
-          <input type="submit" value="Add Pokémon">
-      </form>
+        <form id="addDetailsForm">
+            <label for="pokemonNickname">Nickname:</label>
+            <input type="text" id="pokemonNickname" name="pokemonNickname">
+    
+            <label for="pokemonLevel">Level:</label>
+            <input type="number" id="pokemonLevel" name="pokemonLevel">
+    
+            <label for="pokemonGender">Gender:</label>
+            <select id="pokemonGender" name="pokemonGender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+    
+            <label for="pokemonForme">Forme:</label>
+            <input type="text" id="pokemonForme" name="pokemonForme">
+    
+            <label for="pokemonShiny">Shiny:</label>
+            <input type="checkbox" id="pokemonShiny" name="pokemonShiny">
+    
+            <label for="pokemonAbility">Ability:</label>
+            <input type="text" id="pokemonAbility" name="pokemonAbility">
+    
+            <label for="pokemonNature">Nature:</label>
+            <input type="text" id="pokemonNature" name="pokemonNature">
+    
+            <label for="pokemonMoves">Moves:</label>
+            <input type="text" placeholder="Move 1" name="pokemonMoves[]">
+            <input type="text" placeholder="Move 2" name="pokemonMoves[]">
+            <input type="text" placeholder="Move 3" name="pokemonMoves[]">
+            <input type="text" placeholder="Move 4" name="pokemonMoves[]">
+    
+            <label for="pokemonIV">IVs:</label>
+            <input type="text" id="pokemonIV" name="pokemonIV">
+    
+            <label for="pokemonGame">Game:</label>
+            <input type="text" id="pokemonGame" name="pokemonGame">
+    
+            <label for="pokemonLocation">Location:</label>
+            <input type="text" id="pokemonLocation" name="pokemonLocation">
+    
+            <label for="pokemonBall">Ball:</label>
+            <input type="text" id="pokemonBall" name="pokemonBall">
+    
+            <input type="submit" value="Add Pokémon">
+        </form>
+    </div>
   </div>
 <script src="src/main.js"></script>
 </body>
