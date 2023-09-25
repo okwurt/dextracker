@@ -12,9 +12,9 @@
             <h2>Dex Tracker</h2>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Origin Dex</a></li>
-            <li><a href="#">Shiny Living Dex</a></li>
+            <li><a href="#" data-section="home">Home</a></li>
+            <li><a href="#" data-section="origin-dex">Origin Dex</a></li>
+            <li><a href="#" data-section="shiny-living-dex">Shiny Living Dex</a></li>
             <li>
                 <button id="addPokemonBtn">Add Pokémon</button>
             </li>
@@ -22,6 +22,16 @@
     </div>
 
     <div class="content">
+        <section id="home" class="hidden">
+          <!-- Home section content -->
+        </section>
+        <section id="origin-dex" class="hidden">
+          <!-- Origin Dex section content -->
+        </section>
+        <section id="shiny-living-dex" class="hidden">
+          <!-- Shiny Living Dex section content -->
+        </section>
+      </div>
         <!-- Toggle Buttons for List and Card View -->
         <div class="view-toggle">
             <button id="listViewBtn" class="active">List View</button>
@@ -46,7 +56,7 @@
           <label for="pokemonName">Pokémon Name:</label>
           <input type="text" id="pokemonName" name="pokemonName" list="pokemonNames">
           <datalist id="pokemonNames">
-              <!-- This will be populated with Pokémon names from your JSON -->
+            
           </datalist>
           <input type="submit" id="nextBtn" value="Next">
       </form>
@@ -65,17 +75,24 @@
             <select id="pokemonGender" name="pokemonGender">
                 <option value="male">Male</option>
                 <option value="female">Female</option>
+                <option value="genderless">Genderless</option>
             </select>
     
-            <label for="pokemonForme">Forme:</label>
-            <input type="text" id="pokemonForme" name="pokemonForme">
+            <label for="pokemonForm">Form:</label>
+            <input type="text" id="pokemonForm" name="pokemonForm" list="pokemonFormNames">
+            <datalist id="pokemonFormNames">
+
+            </datalist>
     
             <label for="pokemonShiny">Shiny:</label>
             <input type="checkbox" id="pokemonShiny" name="pokemonShiny">
     
             <label for="pokemonAbility">Ability:</label>
-            <input type="text" id="pokemonAbility" name="pokemonAbility">
-    
+            <input type="text" id="pokemonAbility" name="pokemonAbility" list="pokemonAbilities">
+            <datalist id="pokemonAbilities">
+
+            </datalist>
+
             <label for="pokemonNature">Nature:</label>
             <input type="text" id="pokemonNature" name="pokemonNature">
     
@@ -86,7 +103,12 @@
             <input type="text" placeholder="Move 4" name="pokemonMoves[]">
     
             <label for="pokemonIV">IVs:</label>
-            <input type="text" id="pokemonIV" name="pokemonIV">
+            <input type="text" id="hpIV" placeholder="HP" name="hp">
+            <input type="text" id="atkIV" placeholder="Atk" name="atk">
+            <input type="text" id="defIV" placeholder="Def" name="def">
+            <input type="text" id="spatkIV" placeholder="Sp. Atk" name="spatk">
+            <input type="text" id="spdefIV" placeholder="Sp. Def" name="spdef">
+            <input type="text" id="speIV" placeholder="Speed" name="spe">
     
             <label for="pokemonGame">Game:</label>
             <input type="text" id="pokemonGame" name="pokemonGame">
@@ -100,7 +122,28 @@
             <input type="submit" value="Add Pokémon">
         </form>
     </div>
+    <div id="addPokemonSuccessModal">
+        <h2>Pokémon Added!</h2>
+        <button id="addPokemonSuccessCloseBtn">Close</button>
   </div>
+   <!-- Home Section -->
+   <section id="home" class="active">
+    <h1>Welcome to UltraDex Tracker</h1>
+    <p>This is a tool for tracking your Pokémon collection.</p>
+  </section>
+
+  <!-- Origin Dex Section -->
+  <section id="origin-dex">
+    <h1>Origin Dex</h1>
+    <p>This is the section for tracking your Origin Dex.</p>
+  </section>
+
+  <!-- Shiny Living Dex Section -->
+  <section id="shiny-living-dex">
+    <h1>Shiny Living Dex</h1>
+    <p>This is the section for tracking your Shiny Living Dex.</p>
+  </section>
+
 <script src="src/main.js"></script>
 </body>
 </html>
