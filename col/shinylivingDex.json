@@ -1,1 +1,27 @@
-[]
+[
+    {
+        "id": 151,
+        "name": "Mew",
+        "nickname": "Tatsumaki",
+        "level": 100,
+        "gender": "Genderless",
+        "type": ["Psychic"],
+        "shiny": true,
+        "OT": "Jacob",
+        "TID": "30420",
+        "nature": "Timid",
+        "ability": "Synchronize",
+        "ivs": {
+            "hp": 31,
+            "atk": 31,
+            "def": 31,
+            "spa": 31,
+            "spd": 31,
+            "spe": 31
+        },
+        "moves": ["False Swipe", "Psychic", "Thunder Wave", "Aura Sphere"],
+        "game": "Emerald",
+        "location": "Faraway Island",
+        "ball": "Dive Ball"
+    }
+]

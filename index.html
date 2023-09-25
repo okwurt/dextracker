@@ -12,10 +12,14 @@
             <h2>Dex Tracker</h2>
         </div>
         <ul class="sidebar-menu">
-            <li><a href="#" data-section="home">Home</a></li>
-            <li><a href="#" data-section="origin-dex">Origin Dex</a></li>
-            <li><a href="#" data-section="shiny-living-dex">Shiny Living Dex</a></li>
-            <li>
+          <div id="manageCollectionsModal">
+            <input type="text" id="newCollectionName" placeholder="New Collection">
+            <button id="addCollectionBtn">Add Collection</button>
+              <li><a href="#" data-section="origin-dex">Origin Dex</a></li>
+              <li><a href="#" data-section="shiny-living-dex">Shiny Living Dex</a></li>
+              <li>
+          </div>
+            
                 <button id="addPokemonBtn">Add Pokémon</button>
             </li>
         </ul>
@@ -39,14 +43,34 @@
         </div>
 
         <!-- List View Container -->
-        <div id="listContainer" class="active"></div>
+        <div id="listContainer" class="view-toggle">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Nickname</th>
+                <th>Level</th>
+                <th>Type</th>
+                <th>Ability</th>
+                <th>Moves</th>
+                <th>Game</th>
+                <th>Ball</th>
+              </tr>
+            </thead>
+            <tbody id="pokemonList">
+            </tbody>
+          </table>
+        </div>
 
         <!-- Card View Container -->
-        <div id="cardContainer"></div>
+        <div id="cardContainer" class="view-toggle">
+          <div id="pokemonCard" class="card"
+        </div>
+        </div>
 
         <div class="search-container">
-            <input type="text" id="pokemonSearch" placeholder="Search Pokémon">
-            <ul id="results-list"></ul>
+            <input type="text" id="pokemonSearch" placeholder="Search Pokémon" list="pokemonNames">
+            <datalist id="pokemonNames"></datalist>
         </div>
     </div>
 
@@ -55,9 +79,8 @@
       <form id="addPokemonForm">
           <label for="pokemonName">Pokémon Name:</label>
           <input type="text" id="pokemonName" name="pokemonName" list="pokemonNames">
-          <datalist id="pokemonNames">
-            
-          </datalist>
+          <datalist id="pokemonNames"></datalist>
+          <img id="pokemonImage" src="sprites/weekly/pokemon/{$}.png"/>
           <input type="submit" id="nextBtn" value="Next">
       </form>
       <button id="addPokemonCloseBtn">Close</button>
@@ -126,24 +149,11 @@
         <h2>Pokémon Added!</h2>
         <button id="addPokemonSuccessCloseBtn">Close</button>
   </div>
-   <!-- Home Section -->
-   <section id="home" class="active">
-    <h1>Welcome to UltraDex Tracker</h1>
-    <p>This is a tool for tracking your Pokémon collection.</p>
-  </section>
-
-  <!-- Origin Dex Section -->
-  <section id="origin-dex">
-    <h1>Origin Dex</h1>
-    <p>This is the section for tracking your Origin Dex.</p>
-  </section>
-
-  <!-- Shiny Living Dex Section -->
-  <section id="shiny-living-dex">
-    <h1>Shiny Living Dex</h1>
-    <p>This is the section for tracking your Shiny Living Dex.</p>
-  </section>
-
+<script src="src/initialize.js"></script>
+<script src="src/pokemonData.js"></script>
+<script src="src/eventHandling.js"></script>
+<script src="src/uiRendering.js"></script>
+<script src="src/collectionManagement.js"></script>
 <script src="src/main.js"></script>
 </body>
 </html>

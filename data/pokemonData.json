@@ -755,6 +755,197 @@
     "evolutions": []
   },
   {
+    "id": 21,
+    "name": "Spearow",
+    "species": "Tiny Bird Pokemon",
+    "type": ["Normal", "Flying"],
+    "height": "0.30 m",
+    "weight": "2.0 kg",
+    "abilities": ["Keen Eye", "Sniper"],
+    "eggGroups": ["Flying"],
+    "baseStats": {
+      "hp": 40,
+      "attack": 60,
+      "defense": 30,
+      "specialAttack": 31,
+      "specialDefense": 31,
+      "speed": 70,
+      "total": 262
+    },
+    "evYield": [{ "attack": 1 }],
+    "forms": [],
+    "preEvolutions": [],
+    "evolutions": [
+      {
+        "name": "Fearow",
+        "method": "Level Up",
+        "condition": 20
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "Fearow",
+    "species": "Beak Pokemon",
+    "type": ["Normal", "Flying"],
+    "height": "1.19 m",
+    "weight": "38.0 kg",
+    "abilities": ["Keen Eye", "Sniper"],
+    "eggGroups": ["Flying"],
+    "baseStats": {
+      "hp": 65,
+      "attack": 90,
+      "defense": 65,
+      "specialAttack": 61,
+      "specialDefense": 61,
+      "speed": 100,
+      "total": 442
+    },
+    "evYield": [{ "attack": 2 }],
+    "forms": [],
+    "preEvolutions": [
+      {
+        "name": "Spearow",
+        "method": "Level Up",
+        "condition": 20
+      }
+    ],
+    "evolutions": []
+  },
+  {
+    "id": 23,
+    "name": "Ekans",
+    "species": "Snake Pokemon",
+    "type": ["Poison"],
+    "height": "2.01 m",
+    "weight": "6.9 kg",
+    "abilities": ["Intimidate", "Shed Skin", "Unnerve"],
+    "eggGroups": ["Field", "Dragon"],
+    "baseStats": {
+      "hp": 35,
+      "attack": 60,
+      "defense": 44,
+      "specialAttack": 40,
+      "specialDefense": 54,
+      "speed": 55,
+      "total": 288
+    },
+    "evYield": [{ "attack": 1 }],
+    "forms": [],
+    "preEvolutions": [],
+    "evolutions": [
+      {
+        "name": "Arbok",
+        "method": "Level Up",
+        "condition": 22
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "Arbok",
+    "species": "Cobra Pokemon",
+    "type": ["Poison"],
+    "height": "3.51 m",
+    "weight": "65.0 kg",
+    "abilities": ["Intimidate", "Shed Skin", "Unnerve"],
+    "eggGroups": ["Field", "Dragon"],
+    "baseStats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 69,
+      "specialAttack": 65,
+      "specialDefense": 79,
+      "speed": 80,
+      "total": 448
+    },
+    "evYield": [{ "attack": 2 }],
+    "forms": [],
+    "preEvolutions": [
+      {
+        "name": "Ekans",
+        "method": "Level Up",
+        "condition": 22
+      }
+    ],
+    "evolutions": []
+  },
+  {
+    "id": 25,
+    "name": "Pikachu",
+    "species": "Mouse Pokemon",
+    "type": ["Electric"],
+    "height": "0.41 m",
+    "weight": "6.0 kg",
+    "abilities": ["Static", "Lightning Rod"],
+    "eggGroups": ["Field", "Fairy"],
+    "baseStats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "specialAttack": 50,
+      "specialDefense": 50,
+      "speed": 90,
+      "total": 320
+    },
+    "evYield": [{ "speed": 1 }],
+    "forms": [
+      {
+        "formName": "Partner",
+        "displayName": "Partner Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Original Cap",
+        "displayName": "Original Cap Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Hoenn Cap",
+        "displayName": "Hoenn Cap Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Sinnoh Cap",
+        "displayName": "Sinnoh Cap Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Unova Cap",
+        "displayName": "Unova Cap Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Kalos Cap",
+        "displayName": "Kalos Cap Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Gigantamax",
+        "displayName": "G-Max Pikachu",
+        "type": ["Electric"],
+        "isBattleForm": true
+      }
+    ],
+    "preEvolutions": [],
+    "evolutions": [
+      {
+        "name": "Raichu",
+        "method": "Use Thunder Stone"
+      },
+      {
+        "name": "Alolan Raichu",
+        "method": "Use Thunder Stone in Alola"
+      }
+    ]
+  },
+  {
     "id": 151,
     "name": "Mew",
     "species": "New Species Pokemon",
