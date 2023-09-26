@@ -7,6 +7,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
 body {
     background: linear-gradient(45deg, #e0f2f1, #CFD8DC);
     background-size: 600% 600%;
+    background-color: #181818;
     animation: Gradient 15s infinite;
 }
 
@@ -22,7 +23,7 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 250px;
+    width: 200px;
     background-color: #1a2530; /* Dark background color */
     color: #ecf0f1; /* Light text color */
     overflow-y: auto;
@@ -377,3 +378,6 @@ body {
     white-space: nowrap;
 }
 
+.content {
+    padding-left: 200px;
+}

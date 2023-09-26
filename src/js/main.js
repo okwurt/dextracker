@@ -3,7 +3,7 @@ import { initialize } from "./initialize.js";
 import { loadStaticData } from "./pokemonData.js";
 import { setupEventListeners } from "./eventHandling.js";
 import { renderPokemonCollection, displayMergedData, renderPokemonDetails, renderPokemonDetailsbyName, createPokemonCard } from "./uiRendering.js";
-import { addOrUpdatePokemonToCollection, removePokemonFromCollection, loadCollection, saveCollection, switchCollection } from "./collectionManagement.js";
+import { addOrUpdatePokemonToCollection, removePokemonFromCollection, switchCollection } from "./collectionManagement.js";
 
 // Initialize
 initialize();
