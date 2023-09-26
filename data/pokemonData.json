@@ -989,7 +989,7 @@
     "evYield": [{ "attack": 1 }, { "specialAttack": 1 }],
     "forms": [
       {
-        "formName": "A",
+        "formName": "Unown-A",
         "displayName": "Unown A",
         "type": ["Psychic"],
         "isBattleForm": false

@@ -44,7 +44,7 @@ export function renderPokemonList(pokemonData) {
         }
 
         list.appendChild(listItem);
-    }); // <-- added missing closing bracket here
+    });
 
     listContainer.appendChild(list);
 }
@@ -69,7 +69,7 @@ export function renderFormsCarousel(pokemonForms) {
             </div>
         `;
         carousel.appendChild(slide);
-    }); // <-- added missing closing bracket here
+    }); 
 
-    return carousel; // <-- added missing return statement here
+    return carousel;
 }
