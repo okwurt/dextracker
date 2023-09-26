@@ -60,7 +60,7 @@ export function renderFormsCarousel(pokemonForms) {
         slide.className = 'forms-slide';
 
         slide.innerHTML = `
-            <img src="./sprites/${form.displayName.toLowerCase()}.png" alt="${form.displayName} sprite">
+            <img src="./sprites/${form.formName.toLowerCase()}.png" alt="${form.displayName} sprite">
             <div class="form-name">${form.displayName}</div>
             <div class="form-type">
                 ${form.type.map(type => 
