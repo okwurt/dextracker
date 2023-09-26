@@ -1107,6 +1107,54 @@
         "displayName": "Unown T",
         "type": ["Psychic"],
         "isBattleForm": false
+      },
+      {
+        "formName": "U",
+        "displayName": "Unown U",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "V",
+        "displayName": "Unown V",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "W",
+        "displayName": "Unown W",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "X",
+        "displayName": "Unown X",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Y",
+        "displayName": "Unown Y",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "Z",
+        "displayName": "Unown Z",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "!",
+        "displayName": "Unown !",
+        "type": ["Psychic"],
+        "isBattleForm": false
+      },
+      {
+        "formName": "?",
+        "displayName": "Unown ?",
+        "type": ["Psychic"],
+        "isBattleForm": false
       }
     ]
   },

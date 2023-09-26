@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UltraDex Tracker</title>
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
     <div class="sidebar">
@@ -27,7 +27,8 @@
 
     <div class="content">
         <section id="home" class="hidden">
-          <!-- Home section content -->
+          <div
+        id="pokemonListContainer"></div>
         </section>
         <section id="origin-dex" class="hidden">
           <!-- Origin Dex section content -->
@@ -149,11 +150,6 @@
         <h2>Pokémon Added!</h2>
         <button id="addPokemonSuccessCloseBtn">Close</button>
   </div>
-<script src="src/initialize.js"></script>
-<script src="src/pokemonData.js"></script>
-<script src="src/eventHandling.js"></script>
-<script src="src/uiRendering.js"></script>
-<script src="src/collectionManagement.js"></script>
-<script src="src/main.js"></script>
+<script type="module" src="src/js/main.js"></script>
 </body>
 </html>

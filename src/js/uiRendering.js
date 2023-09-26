@@ -228,8 +228,8 @@ export function renderPokemonCard(pokemon) {
     const header = document.createElement('div');
     header.className = 'pokemon-header';
     header.innerHTML = `
-        <h2 class="pokemon-nickname>${pokemon.nickname} (${pokemon.name})</h2>
-        div class = pokemon-name>${pokemon.name}</div>
+        <h2 class="pokemon-nickname">${pokemon.nickname} (${pokemon.name})</h2>
+        div class ="pokemon-name">${pokemon.name}</div>
         <div class="pokemon-level">Level: ${pokemon.level}</div>
         <div class="pokemon-gender">Gender: ${pokemon.gender}</div>
     `};
