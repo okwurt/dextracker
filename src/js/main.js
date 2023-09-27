@@ -4,7 +4,6 @@ import { loadStaticData } from "./pokemonData.js";
 import { setupEventListeners } from "./eventHandling.js";
 import { renderPokemonCollection, displayMergedData, renderPokemonDetails, renderPokemonDetailsbyName, createPokemonCard } from "./uiRendering.js";
 import { addOrUpdatePokemonToCollection, removePokemonFromCollection, switchCollection } from "./collectionManagement.js";
-import { createPokemonCard } from "./card.js";
 
 // Initialize
 initialize();
