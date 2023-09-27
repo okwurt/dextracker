@@ -10,7 +10,7 @@ initialize();
 
 async function fetchAllPokemonNames () {
   try {
-    const response = await fetch('data/pokemonNames.json');
+    const response = await fetch('data/pokemonData.json');
     const allPokemonNames = await response.json();
     return allPokemonNames.map(name => name.toLowerCase());
   } catch (error) {
