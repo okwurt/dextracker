@@ -891,31 +891,31 @@
     "evYield": [{ "speed": 1 }],
     "forms": [
       {
-        "formName": "Partner",
+        "formName": "Pikachu-Partner",
         "displayName": "Partner Pikachu",
         "type": ["Electric"],
         "isBattleForm": false
       },
       {
-        "formName": "Original Cap",
+        "formName": "Pikachu-Original",
         "displayName": "Original Cap Pikachu",
         "type": ["Electric"],
         "isBattleForm": false
       },
       {
-        "formName": "Hoenn Cap",
+        "formName": "Pikachu-Hoenn",
         "displayName": "Hoenn Cap Pikachu",
         "type": ["Electric"],
         "isBattleForm": false
       },
       {
-        "formName": "Sinnoh Cap",
+        "formName": "Pikachu-Sinnoh",
         "displayName": "Sinnoh Cap Pikachu",
         "type": ["Electric"],
         "isBattleForm": false
       },
       {
-        "formName": "Unova Cap",
+        "formName": "Pikachu-Unova",
         "displayName": "Unova Cap Pikachu",
         "type": ["Electric"],
         "isBattleForm": false
