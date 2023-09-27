@@ -32,7 +32,6 @@
 .pokemon-item .pokemon-id {
     font-size: 0.9em;
     font-weight: bold;
-    margin-right: 10px;
 }
 
 .pokemon-item .pokemon-name {
@@ -130,7 +129,13 @@
 }
 
 .pokemon-item .pokemon-abilities {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: small;
     margin-right: 10px;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .pokemon-item .pokemon-abilities em {
@@ -146,7 +151,6 @@
     padding: 0;
     list-style-type: none;
     display: flex;
-    flex-wrap: wrap;
 }
 
 .pokemon-item .pokemon-base-stats li {

@@ -701,7 +701,7 @@
     "evYield": [{ "attack": 1 }],
     "forms": [
       {
-        "formName": "Alola",
+        "formName": "Rattata-Alola",
         "displayName": "Alolan Rattata",
         "type": ["Dark", "Normal"],
         "abilities": ["Gluttony", "Hustle", "Thick Fat"],
@@ -738,7 +738,7 @@
     "evYield": [{ "attack": 2 }],
     "forms": [
       {
-        "formName": "Alola",
+        "formName": "Raticate-Alola",
         "displayName": "Alolan Raticate",
         "type": ["Dark", "Normal"],
         "abilities": ["Gluttony", "Hustle", "Thick Fat"],
