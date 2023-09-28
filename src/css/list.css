@@ -1,21 +1,23 @@
-.pokemon-list {
-    display: flex;
-    flex-direction: column;
+.pokemon-item {
+    display: grid;
+    grid-template-columns: auto repeat(5, 1fr); /* Display three cards in a line */
     list-style-type: none;
+    align-items: center;
 }
 
-.pokemon-item {
+.pokemon-card {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Display each card as a column */
     align-items: center;
     border: 1px solid #ccc;
-    margin-bottom: 10px;
+    margin: 10px;
     padding: 10px;
     color: #e0e0e0;
     background-color: #424242;
+    width: 200px; /* Set the width of each card */
 }
 
-.pokemon-item:hover {
+.pokemon-card:hover {
     background-color: #616161;
 }
 
@@ -24,9 +26,9 @@
 }
 
 .pokemon-item img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    width: 100px; /* Set the width of the image */
+    height: 100px; /* Set the height of the image */
+    margin-bottom: 10px;
 }
 
 .pokemon-item .pokemon-id {
@@ -36,11 +38,11 @@
 
 .pokemon-item .pokemon-name {
     font-weight: bold;
-    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .pokemon-item .pokemon-type {
-    margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .pokemon-item .type-badge {
@@ -48,12 +50,6 @@
     padding: 5px 10px;
     margin: 2px;
     border: 1px solid #fff;
-    border-radius: 12px;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    color: #fff;
-    text-align: center;
 }
 
 .type-badge.normal {
@@ -158,23 +154,5 @@
 }
 
 .pokemon-item .pokemon-egg-groups {
-    margin-right: 10px;
-}
-
-.forms-carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 10px;
-}
-
-.forms-slide {
-    flex: 0 0 auto;
-    width: 100%;
-    scroll-snap-align: start;
-    background-color: #424242;
-    border: 1px solid #333;
-    padding: 10px;
     margin-right: 10px;
 }
