@@ -14,7 +14,7 @@ export function renderPokemonList(pokemonData) {
         listItem.innerHTML = `
             <div class="pokemon-card">
                 <div class="poke-id">${pokemon.id}</div>
-                <img src="./sprites/games/scarlet-violet/normal/${pokemon.name.toLowerCase()}.png" alt="${
+                <img src="./sprites/icons/${pokemon.name.toLowerCase()}.png" alt="${
           pokemon.name
         } sprite">
                 <div class="pokemon-name">${pokemon.name}</div>

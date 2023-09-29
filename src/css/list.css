@@ -1,6 +1,6 @@
 .pokemon-item {
     display: grid;
-    grid-template-columns: auto repeat(5, 1fr); /* Display three cards in a line */
+    grid-template-columns: auto repeat(10, 1fr); /* Display three cards in a line */
     list-style-type: none;
     align-items: center;
 }
@@ -14,7 +14,8 @@
     padding: 10px;
     color: #e0e0e0;
     background-color: #424242;
-    width: 200px; /* Set the width of each card */
+    height: 100px;
+    width: 100px; /* Set the width of each card */
 }
 
 .pokemon-card:hover {
@@ -26,8 +27,8 @@
 }
 
 .pokemon-item img {
-    width: 100px; /* Set the width of the image */
-    height: 100px; /* Set the height of the image */
+    width: 30px; /* Set the width of the image */
+    height: 30px; /* Set the height of the image */
     margin-bottom: 10px;
 }
 
@@ -42,14 +43,18 @@
 }
 
 .pokemon-item .pokemon-type {
+    display: flex;
     margin-bottom: 5px;
 }
 
 .pokemon-item .type-badge {
-    display: inline-block;
+    display: inline-flex;
+    height: 2px;
+    width: 2px;
     padding: 5px 10px;
     margin: 2px;
     border: 1px solid #fff;
+    font-size: 0.1em;
 }
 
 .type-badge.normal {

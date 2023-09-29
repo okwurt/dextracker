@@ -946,6 +946,41 @@
     ]
   },
   {
+    "id": 26,
+    "name": "Raichu",
+    "species": "Mouse Pokemon",
+    "type": ["Electric"],
+    "height": "0.79 m",
+    "weight": "30.0 kg",
+    "abilities": ["Static", "Lightning Rod"],
+    "eggGroups": ["Field", "Fairy"],
+    "baseStats": {
+      "hp": 60,
+      "attack": 90,
+      "defense": 55,
+      "specialAttack": 90,
+      "specialDefense": 80,
+      "speed": 110,
+      "total": 485
+    },
+    "evYield": [{ "speed": 2 }],
+    "forms": [
+      {
+        "formName": "Raichu-Alola",
+        "displayName": "Alolan Raichu",
+        "type": ["Electric", "Psychic"],
+        "isBattleForm": false
+      }
+    ],
+    "preEvolutions": [
+      {
+        "name": "Pikachu",
+        "method": "Use Thunder Stone"
+      }
+    ],
+    "evolutions": []
+  },
+  {
     "id": 151,
     "name": "Mew",
     "species": "New Species Pokemon",
