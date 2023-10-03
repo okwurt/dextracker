@@ -70,6 +70,7 @@ body {
 .sidebar-menu li a:hover {
     background-color: #34495e; /* Slightly lighter shade for hover */
     padding-left: 30px; /* Indent text on hover */
+    cursor: pointer;
 }
 .search-container {
     position: relative;
