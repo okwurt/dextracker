@@ -1194,6 +1194,36 @@
     ]
   },
   {
+    "id": 778,
+    "name": "Mimikyu",
+    "species": "Disguise Pokemon",
+    "type": ["Ghost", "Fairy"],
+    "height": "0.20 m",
+    "weight": "0.7 kg",
+    "abilities": ["Disguise"],
+    "eggGroups": ["Amorphous"],
+    "baseStats": {
+      "hp": 55,
+      "attack": 90,
+      "defense": 80,
+      "specialAttack": 50,
+      "specialDefense": 105,
+      "speed": 96,
+      "total": 476
+    },
+    "evYield": [{ "specialDefense": 2 }],
+    "forms": [
+      {
+        "formName": "Busted Form",
+        "displayName": "Busted Mimikyu",
+        "type": ["Ghost", "Fairy"],
+        "isBattleForm": false
+      }
+    ],
+    "preEvolutions": [],
+    "evolutions": []
+  },
+  {
     "id": 1012,
     "name": "Poltchageist",
     "species": "Matcha Pokemon",
