@@ -7,20 +7,15 @@
     <link rel="stylesheet" href="src/css/styles.css">
     <link rel="stylesheet" href="src/css/list.css">
 </head>
+
 <body>
     <div class="sidebar">
         <div class="sidebar-header">
             <h2>Dex Tracker</h2>
         </div>
         <ul class="sidebar-menu">
-          <div id="manageCollectionsModal">
-            <input type="text" id="newCollectionName" placeholder="New Collection">
-            <button id="addCollectionBtn">Add Collection</button>
-              <li><a href="#" data-section="origin-dex">Origin Dex</a></li>
-              <li><a href="#" data-section="shiny-living-dex">Shiny Living Dex</a></li>
-              <li>
-          </div>
-            
+             <!-- Collection links will be dynamically added here -->
+          <li>
                 <button id="addPokemonBtn">Add Pokémon</button>
             </li>
         </ul>
@@ -31,13 +26,8 @@
           <div
         id="pokemonListContainer"></div>
         </section>
-        <section id="origin-dex" class="hidden">
-          <!-- Origin Dex section content -->
-        </section>
-        <section id="shiny-living-dex" class="hidden">
-          <!-- Shiny Living Dex section content -->
-        </section>
-      </div>
+        <div id="pokemonDisplayContainer"></div>
+
         <!-- Toggle Buttons for List and Card View -->
         <div class="view-toggle">
             <button id="listViewBtn" class="active">List View</button>
@@ -151,6 +141,7 @@
         <h2>Pokémon Added!</h2>
         <button id="addPokemonSuccessCloseBtn">Close</button>
   </div>
+<script></script>
 <script type="module" src="src/js/main.js"></script>
 </body>
 </html>
