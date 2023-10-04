@@ -1,18 +1,12 @@
-import { loadStaticData } from "./pokemonData.js";
-import { loadUserCollection } from "./collectionManagement.js";
-import { renderPokemonCollection } from "./uiRendering.js";
-import { setupEventListeners } from "./eventHandling.js";
-import { renderPokemonList } from "./list.js";
+import { initializeSidebar } from "./uiManagement.js";
+import { initializePokemonList } from "./uiManagement.js";
+import { initializeModals } from "./uiManagement.js";
+import { initializeCollectionManagement} from "./uiManagement.js";
 
-export async function initialize() {
-    const pokemonData = await loadStaticData();
-    const userCollection = await loadUserCollection();
+export function initializeApp() {
+    initializeSidebar();
+    initializePokemonList();
+    initializeModals();
 
-    renderPokemonList(pokemonData);
-    renderPokemonCollection(userCollection);
-
-    setupEventListeners();
+initializeCollectionManagement();
 }
-
-initialize();
-

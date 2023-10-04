@@ -1,65 +1,115 @@
-import { listAllCollections, getCollection } from './dataManagement.js';
+import { collections, getCollection, addPokemonToCollection, deletePokemonFromCollection } from './collections.js';
 
-function initializeSidebar() {
-    const sidebarMenu = document.querySelector('.sidebar-menu');
-    const collections = listAllCollections();
-    let collectionHTML = collections.map(collection => `<li><a href="#"
-    data-collection="${collection.name}">$
-    {collection.name}</a><li>`).join('');
+export function initializeSidebar() {
+    const collectionsList = document.getElementById('collectionsList');
 
-    sidebarMenu.innerHTML = collectionHTML;
+    collectionsList.innerHTML = ''; // Clear any existing content
+
+    for (let collectionName in collections) {
+        const collectionLink = document.createElement('a');
+        collectionLink.href = '#';
+
+collectionLink.getAttribute('data-collection-name', collectionName);
+        collectionLink.textContent = collectionName;
+
+collectionsList.appendChild(collectionLink);
+    }      
 }
 
-function displayPokemonList(collectionName) {
-    const collection = getCollection(collectionName);
-    const listContainer = document.getElementById('pokemonListContainer');
-    let pokemonHTML = collection.map(pokemon => `
-            <div class="pokemon-item">
-                <span>${pokemon.id}</span>
-                <img src="./sprites/icons/${pokemon.name.toLowerCase()}.png" alt="${pokemon.name} sprite">
+export function initializePokemonList() {
+    const pokemonListContainer = document.getElementById('pokemonListContainer');
+
+    pokemonListContainer.innerHTML = ''; // Clear any existing content
+
+    for (let collectionName in collections) {
+        const collection = getCollection(collectionName);
+
+        for (let pokemon of collection) {
+            const pokemonItem = document.createElement('div');
+            pokemonItem.classList.add('pokemon-item');
+            pokemonItem.innerHTML = `
+                <img src="./sprites/icons/${pokemon.name.toLowerCase()}.png" alt="${
+                    pokemon.name
+                  } sprite">
                 <span>${pokemon.name}</span>
-                <span>${pokemon.type.join(", ")}</span>
-                <span>${pokemon.abilities.join(", ")}</span>
-                <span>${pokemon.baseStats.total}</span>
-                <span>${pokemon.eggGroups.join(", ")}</span>
-            </div>
-    `).join('');
-    listContainer.innerHTML = pokemonHTML;
+            `;
+            pokemonListContainer.appendChild(pokemonItem);
+        }
+    }
 }
 
-function displayPokemonDetails(pokemonData) {
-    const detailsModal = document.getElementById('pokemonDetailsModal');
-    
-    detailsModal.querySelector('#pokemonNickname').value = pokemonData.nickname;
-    detailsModal.querySelector('#pokemonShiny').checked = pokemonData.shiny;
-    detailsModal.querySelector('#pokemonLevel').value = pokemonData.level;
-    detailsModal.querySelector('#pokemonGender').value = pokemonData.gender;
-    detailsModal.querySelector('#pokemonNature').value = pokemonData.nature;
-    detailsModal.querySelector('#pokemonAbility').value = pokemonData.ability;
-    detailsModal.querySelector('#pokemonMoves').value = pokemonData.moves.join(", ");
-    detailsModal.querySelector('#pokemonGame').value = pokemonData.game;
-    detailsModal.querySelector('#pokemonLocation').value = pokemonData.location;
-    detailsModal.querySelector('#pokemonBall').value = pokemonData.ball;
+export function initializeModals() {
+    const addPokemonModal = document.getElementById('addPokemonModal');
+    const addPokemonBtn = document.getElementById('addPokemonBtn');
+    const closeModalBtn = document.getElementById('addPokemonCloseBtn');
 
-    detailsModal.style.display = 'block';
+addPokemonBtn.addEventListener('click', () => {
+
+addPokemonModal.style.display = 'block';
+    });
+
+closeModalBtn.addEventListener('click', () => {
+
+addPokemonModal.style.display = 'none';
+    });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    updateSidebar();
-    document.querySelector('.sidebar-menu').addEventListener('click', (e) => {
-        if (e.target.dataset.collection) {
-        const collectionName = e.target.dataset.collection;
+export function displayPokemonCollection(collectionName) {
+    const currentCollection = getCollection(collectionName);
+    const displayArea = document.getElementById('displayArea');
 
-        displayPokemonList(collectionName);
+    displayArea.innerHTML = ''; // Clear any existing content
+
+    currentCollection.forEach(pokemon => {
+        const pokemonCard = createPokemonCard(pokemon);
+
+displayArea.appendChild(pokemonCard);
+    });
+}
+
+export function createPokemonCard(pokemon) {
+    const card = document.createElement('div');
+    card.className = 'pokemon-card';
+    card.innerHTML = `
+        <h2>${pokemon.name}</h2>
+        <img src="./sprites/icons/${pokemon.name.toLowerCase()}.png" alt="${
+            pokemon.name
+            } sprite">
+        <p>Nickname: ${pokemon.nickname}</p>
+        <p>Type: ${pokemon.type.join(', ')}</p>
+        <p>Gender: ${pokemon.gender}</p>
+        <p>Shiny: ${pokemon.shiny}</p>
+        <p>Level: ${pokemon.level}</p>
+        <p>Nature: ${pokemon.nature}</p>
+        <p>Ability: ${pokemon.ability}</p>
+        <p>Moves: ${pokemon.moves.join(', ')}</p>
+        <p>Game: ${pokemon.game}</p>
+        <p>Location: ${pokemon.location}</p>
+        <p>Ball: ${pokemon.ball}</p>
+        <p>OT: ${pokemon.ot}</p>
+        <p>TID: ${pokemon.tid}</p>
+        `;
+    return card;
+}
+
+export function initializeCollectionManagement() {
+    const addCollectionBtn = document.getElementById('addNewCollectionBtn');
+    const removeCollectionBtn = document.getElementById('removeCollectionBtn');
+
+    addCollectionBtn.addEventListener('click', () => {
+        const newCollectionName = prompt('Enter the name of the new collection:');
+        if (newCollectionName) {
+            addCollection(newCollectionName);
+            initializeSidebar();
         }
     });
 
-document.getElementById('pokemonListContainer').addEventListener('click', (e) => {
-    if (e.target.closest('.pokemon-item')) {
-        const pokemonName = e.target.closest('.pokemon-item').querySelector('span').textContent;
-        const pokemonData = getSpecificPokemon(pokemonName);
+    removeCollectionBtn.addEventListener('click', () => {
+        const collectionNameToRemove = prompt('Enter the name of the collection to remove:');
+        if (collectionNameToRemove) {
+            removeCollection(collectionNameToRemove);
+            initializeSidebar();
+        }
+    });
+}
 
-        displayPokemonDetails(pokemonData);
-                }
-            });
-        });
