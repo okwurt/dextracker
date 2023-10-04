@@ -981,6 +981,43 @@
     "evolutions": []
   },
   {
+    "id": 27,
+    "name": "Sandshrew",
+    "species": "Mouse Pokemon",
+    "type": ["Ground"],
+    "height": "0.61 m",
+    "weight": "12.0 kg",
+    "abilities": ["Sand Veil", "Sand Rush"],
+    "eggGroups": ["Field"],
+    "baseStats": {
+      "hp": 50,
+      "attack": 75,
+      "defense": 85,
+      "specialAttack": 20,
+      "specialDefense": 30,
+      "speed": 40,
+      "total": 300
+    },
+    "evYield": [{ "defense": 1 }],
+    "forms": [
+      {
+        "formName": "Sandshrew-Alola",
+        "displayName": "Alolan Sandshrew",
+        "type": ["Ice", "Steel"],
+        "abilities": ["Snow Cloak", "Slush Rush"],
+        "isBattleForm": false
+      }
+    ],
+    "preEvolutions": [],
+    "evolutions": [
+      {
+        "name": "Sandslash",
+        "method": "Level Up",
+        "condition": 22
+      }
+    ]
+  },
+  {
     "id": 151,
     "name": "Mew",
     "species": "New Species Pokemon",

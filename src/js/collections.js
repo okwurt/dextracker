@@ -14,8 +14,10 @@ function addCollection(collectionName) {
  addCollectionBtn.addEventListener('click', () => {
         const collectionName = collectionNameInput.value.trim();
         if (collectionName) {
-
-addCollection(collectionName);
+            addCollection(collectionName);
+            renderCollections();
+        }
+    });
 
 
 function addPokemonToCollection(collectionName, pokemonData) {
@@ -81,28 +83,3 @@ function renderCollections() {
         <button id="addNewCollectionBtn">Add New Collection</button>
     `;
 }
-
-// Initial render of collections
-
-renderCollections();
-
-document.getElementById('collectionsList').addEventListener('click', function(e) {
-    if (e.target.tagName === 'A') {
-        const selectedCollectionName = e.target.getAttribute('data-collection-name');
-
-        // Display the selected collection
-
-        displayPokemonCollection(selectedCollectionName);
-    }
-}); 
-
-document.getElementById('addNewCollectionBtn').addEventListener('click', function() {
-    const newCollectionName = prompt('Enter the name of the new collection:');
-
-    if (newCollectionName) {
-        collections[newCollectionName] = [];
-
-        renderCollections();
-    }
-}); 
-
