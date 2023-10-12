@@ -17,7 +17,7 @@ const pokemons = [
       speed: 45,
       total: 318
     },
-    evYield: [ specialAttack + 1 ],
+    evYield: [specialAttack, 1],
     forms: [],
     preEvolutions: [],
     evolutions: [
