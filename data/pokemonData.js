@@ -1,35 +1,35 @@
-[
+const pokemons = [
   {
-    "id": 1,
-    "name": "Bulbasaur",
-    "species": "Seed Pokemon",
-    "type": ["Grass", "Poison"],
-    "height": "0.71 m",
-    "weight": "6.9 kg",
-    "abilities": ["Overgrow", "Chlorophyll"],
-    "eggGroups": ["Grass", "Monster"],
-    "baseStats": {
-      "hp": 45,
-      "attack": 49,
-      "defense": 49,
-      "specialAttack": 65,
-      "specialDefense": 65,
-      "speed": 45,
-      "total": 318
+    id: 1,
+    name: "Bulbasaur",
+    species: "Seed Pokemon",
+    type: ["Grass", "Poison"],
+    height: "0.71 m",
+    weight: "6.9 kg",
+    abilities: ["Overgrow", "Chlorophyll"],
+    eggGroups: ["Grass", "Monster"],
+    baseStats: {
+      hp: 45,
+      attack: 49,
+      defense: 49,
+      specialAttack: 65,
+      specialDefense: 65,
+      speed: 45,
+      total: 318
     },
-    "evYield": [{ "specialAttack": 1 }],
-    "forms": [],
-    "preEvolutions": [],
-    "evolutions": [
+    evYield: [ specialAttack + 1 ],
+    forms: [],
+    preEvolutions: [],
+    evolutions: [
       {
-        "name": "Ivysaur",
-        "method": "Level Up",
-        "condition": 16
+        name: "Ivysaur",
+        method: "Level Up",
+        condition: 16
       },
       {
-        "name": "Venusaur",
-        "method": "Level Up",
-        "condition": 32
+        name: "Venusaur",
+        method: "Level Up",
+        condition: 32
       }
     ]
   },
