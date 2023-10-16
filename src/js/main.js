@@ -1,3 +1,5 @@
+const cachedPokemonData = {}; 
+
 function getPokemonData(pokemonName) {
     // First, fetch cached data from localStorage
     let cachedPokemonData = localStorage.getItem(pokemonName);

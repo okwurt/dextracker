@@ -1,4 +1,4 @@
-[
+const moves = [
     {
         "id": 1,
         "name": "Pound",

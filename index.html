@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UltraDex Tracker</title>
-    <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="src/css/list.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/form.css">
 </head>
 
 <body>
@@ -61,7 +61,7 @@
         </div>
 
         <div class="search-container">
-            <input type="text" id="pokemonSearch" placeholder="Search Pokémon" list="pokemonNames">
+            <select type="text" id="pokemonSearch" placeholder="Search Pokémon" list="pokemonNames"></select>
             <datalist id="pokemonNames"></datalist>
         </div>
     </div>
@@ -69,10 +69,9 @@
     <!-- Modal for Adding Pokémon -->
     <div id="addPokemonModal">
       <form id="addPokemonForm">
-          <label for="pokemonName">Pokémon Name:</label>
-          <input type="text" id="pokemonName" name="pokemonName" list="pokemonNames">
+          <select for="pokemonName">Pokémon Name:</select>
+          <type="text" id="pokemonName" name="pokemonName" list="pokemonNames">
           <datalist id="pokemonNames"></datalist>
-          <img id="pokemonImage" src="sprites/weekly/pokemon/{$}.png"/>
           <input type="submit" id="nextBtn" value="Next">
       </form>
       <button id="addPokemonCloseBtn">Close</button>
@@ -108,9 +107,9 @@
 
             </datalist>
 
-            <label for="pokemonNature">Nature:</label>
-            <input type="text" id="pokemonNature" name="pokemonNature">
-    
+            <label for="pokemonNatures">Nature:</label>
+            <select id="pokemon-nature" name="pokemon-nature"></select>
+            <option value=""></option>
             <label for="pokemonMoves">Moves:</label>
             <input type="text" placeholder="Move 1" name="pokemonMoves[]">
             <input type="text" placeholder="Move 2" name="pokemonMoves[]">
@@ -141,11 +140,11 @@
         <h2>Pokémon Added!</h2>
         <button id="addPokemonSuccessCloseBtn">Close</button>
   </div>
-<script src="/src/js/pokemonData.js"></script>
-<script src="/src/js/uiManagement.js"></script>
-<script src="/src/js/dataManagement.js"></script>
-<script src="/src/js/collections.js"></script>
-<script src="/src/js/eventHandlers.js"></script>
+<script src="src/js/pokemonData.js"></script>
+<script src="src/js/pokemonLocation.js"></script>
+<script src="src/js/pokemonMoves.js"></script>
+<script src="src/js/dropdownData.js"></script>
+<script src="src/js/formHandler.js"></script>
 <script src="src/js/main.js"></script>
 </body>
 </html>

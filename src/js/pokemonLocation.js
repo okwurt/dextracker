@@ -1,4 +1,4 @@
-[
+const locations = [
     {
         "id": 1,
         "gen1": [

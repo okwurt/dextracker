@@ -1,4 +1,4 @@
-const pokemonNames = cachedPokemonData.map(pokemon => pokemon.name).sort();
+const pokemonNames = cachedPokemonData.map(pokemons => pokemons.name).sort();
 const pokemonAbilities = cachedPokemonData.map(pokemon => pokemon.abilities).flat().sort();
 const pokemonLocations = document.getElementById('pokemon-location');
 const pokemonMoves = document.getElementById('pokemon-moves');
@@ -55,19 +55,19 @@ const pokemonGames = {
         'white2': 'White 2',
         'x': 'X',
         'y': 'Y',
-        'omegaruby': 'Omega Ruby',
-        'alphasapphire': 'Alpha Sapphire',
+        'omega-ruby': 'Omega Ruby',
+        'alpha-sapphire': 'Alpha Sapphire',
         'sun': 'Sun',
         'moon': 'Moon',
-        'ultrasun': 'Ultra Sun',
-        'ultramoon': 'Ultra Moon',
-        'letsgoeevee': 'Let\'s Go Eevee',
-        'letsgopikachu': 'Let\'s Go Pikachu',
+        'ultra-sun': 'Ultra Sun',
+        'ultra-moon': 'Ultra Moon',
+        'lets-go-eevee': 'Let\'s Go Eevee',
+        'lets-go-pikachu': 'Let\'s Go Pikachu',
         'sword': 'Sword',
         'shield': 'Shield',
-        'brilliantdiamond': 'Brilliant Diamond',
-        'shiningpearl': 'Shining Pearl',
-        'legendsarceus': 'Legends: Arceus',
+        'brilliant-diamond': 'Brilliant Diamond',
+        'shining-pearl': 'Shining Pearl',
+        'legends-arceus': 'Legends: Arceus',
         'scarlet': 'Scarlet',
         'violet': 'Violet',
     };
@@ -120,12 +120,11 @@ const pokemonGames = {
         }
     }
 
-    window.onload = function() {
-        populateDropdown('pokemon-name', pokemonNames);
-        populateDropdown('pokemon-nature', pokemonNatures);
-        populateDropdown('pokemon-ability', pokemonAbilities);
-        populateDropdown('pokemon-moves', pokemonMoves);
-        populateDropdown('pokemon-game', pokemonGames);
-        populateDropdown('pokemon-location', pokemonLocations);
-        populateDropdown('pokemon-ball', pokemonBalls);
-    }
+        
+    populateDropdown('pokemon-name', pokemonNames);
+    populateDropdown('pokemon-nature', pokemonNatures);
+    populateDropdown('pokemon-ability', pokemonAbilities);
+    populateDropdown('pokemon-moves', pokemonMoves);
+    populateDropdown('pokemon-game', pokemonGames);
+    populateDropdown('pokemon-location', pokemonLocations);
+    populateDropdown('pokemon-ball', pokemonBalls);
