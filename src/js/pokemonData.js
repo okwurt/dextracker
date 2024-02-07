@@ -1498,3 +1498,5 @@ const pokemons = [
     evolutions: [],
   },
 ];
+
+export default pokemons;

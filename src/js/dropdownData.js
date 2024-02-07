@@ -122,7 +122,7 @@ const pokemonGames = {
     }
 
         
-    populateDropdown('pokemonName', pokemonNames);
+    populateDropdown('pokemon-dropdown', pokemonNames);
     populateDropdown('pokemon-nature', pokemonNatures);
     populateDropdown('pokemon-ability', pokemonAbilities);
     populateDropdown('pokemon-moves', pokemonMoves);
