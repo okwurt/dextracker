@@ -1,4 +1,6 @@
-const pokemonNames = cachedPokemonData.map(pokemons => pokemons.name).sort();
+import pokemons from 'src/js/pokemonData.js';
+
+const pokemonNames = pokemons.map(pokemons => pokemons.name).sort();
 const pokemonAbilities = cachedPokemonData.map(pokemon => pokemon.abilities).flat().sort();
 const pokemonLocations = document.getElementById('pokemon-location');
 const pokemonMoves = document.getElementById('pokemon-moves');
@@ -91,7 +93,6 @@ const pokemonGames = {
         'beastball': 'Beast Ball',
         'cherishball': 'Cherish Ball',
         'luxuryball': 'Luxury Ball',
-        'duskball': 'Dusk Ball',
         'healball': 'Heal Ball',
         'nestball': 'Nest Ball',
         'netball': 'Net Ball',
@@ -121,7 +122,7 @@ const pokemonGames = {
     }
 
         
-    populateDropdown('pokemon-name', pokemonNames);
+    populateDropdown('pokemon-dropdown', pokemonNames);
     populateDropdown('pokemon-nature', pokemonNatures);
     populateDropdown('pokemon-ability', pokemonAbilities);
     populateDropdown('pokemon-moves', pokemonMoves);

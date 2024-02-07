@@ -6,6 +6,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .container {
@@ -16,19 +17,21 @@ body {
     min-height: 100vh;
 }
 
-aside {
+.sidebar {
     width: 250px;
     padding: 20px;
     background-color: #eee;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    height: 100vh;
+    height: 100%;
     flex: 0 0 250px;
     position: fixed;
     top: 0;
     left: 0;
+    right: -250px;
+    transition: right 0.5 ease;
 }
 
-header {
+.sidebar-header {
     width: 100%;
     background-color: #3a3a3a;
     color: #fff;
@@ -146,20 +149,4 @@ header {
 
 .pokemon-type.fairy {
     background-color: #ee99ac;
-}
-
-@media only screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    aside {
-        width: 100%;
-        position: relative;
-        padding: 10px;
-    }
-
-    .main-content {
-        padding: 10px;;
-    }
 }
