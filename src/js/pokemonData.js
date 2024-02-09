@@ -1,4 +1,4 @@
-const pokemons = [
+let pokemonData = [
   {
     id: 1,
     name: "Bulbasaur",
@@ -1499,4 +1499,4 @@ const pokemons = [
   },
 ];
 
-export default pokemons;
+export { pokemonData };
