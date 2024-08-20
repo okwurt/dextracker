@@ -17,34 +17,7 @@ body {
     min-height: 100vh;
 }
 
-.sidebar {
-    width: 20%;
-    padding: 20px;
-    background-color: #eee;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    height: 100%;
-    flex: 0 0 250px;
-    position: absolute;
-    float: left;
-    top: 0;
-    left: 0;
-    right: -250px;
-    transition: right 0.5 ease;
-}
 
-.sidebar-header {
-    width: 100%;
-    background-color: #3a3a3a;
-    color: #fff;
-    border: #333;
-    border-radius: 5px;
-    padding: 10px 0;
-    text-align: center;
-    font-size: 24px;
-    position: sticky;
-    top: 0; 
-    z-index: 1000;
-}
 
 .main-content {
     flex: 1;
