@@ -1,152 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UltraDex Tracker</title>
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/css/form.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jacob's Shiny Living Dex Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0d1117; color: #c9d1d9; }
+    h1 { text-align: center; color: #58a6ff; }
+    .controls { text-align: center; margin: 20px 0; }
+    button { padding: 10px 16px; margin: 0 8px; background: #238636; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #2ea043; }
+    button.active { background: #1f6feb; }
+    #add-form { display: none; max-width: 500px; margin: 20px auto; padding: 20px; background: #161b22; border-radius: 8px; }
+    label { display: block; margin: 10px 0 5px; }
+    input, select { width: 100%; padding: 8px; border-radius: 6px; border: 1px solid #30363d; background: #0d1117; color: white; }
+    #collection-select { margin-bottom: 15px; }
+    table, .card-container { width: 100%; margin-top: 20px; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #30363d; padding: 10px; text-align: left; }
+    th { background: #21262d; }
+    .card-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.4); transition: transform 0.2s; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { margin: 0 0 10px; color: #58a6ff; }
+    .card p { margin: 6px 0; font-size: 0.95em; }
+    .hidden { display: none !important; }
+    #status { text-align: center; color: #3fb950; margin: 10px 0; }
+  </style>
 </head>
-
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h2>Dex Tracker</h2>
-        </div>
-        <ul class="sidebar-menu">
-             
-          <li>
-                <button id="addNewCollectionBtn">Add New Collection</button>
-            </li>
-        </ul>
-    </div>
+  <h1>Shiny Living Dex Tracker</h1>
 
-    <div class="content">
-        <section id="home" class="hidden">
-          <div
-        id="pokemonListContainer"></div>
-        </section>
-        <div id="pokemonDisplayContainer"></div>
-
-        <!-- Toggle Buttons for List and Card View -->
-        <div class="view-toggle">
-            <button id="listViewBtn" class="active">List View</button>
-            <button id="cardViewBtn">Card View</button>
-        </div>
-
-        <!-- List View Container -->
-        <div id="listContainer" class="view-toggle">
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Nickname</th>
-                <th>Level</th>
-                <th>Type</th>
-                <th>Ability</th>
-                <th>Moves</th>
-                <th>Game</th>
-                <th>Ball</th>
-              </tr>
-            </thead>
-            <tbody id="pokemonList">
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Card View Container -->
-        <div id="cardContainer" class="view-toggle">
-          <div id="pokemonCard" class="card"></div>
-        </div>
-
-        <div class="search-container">
-            <input type="text" id="pokemonSearch">
-        </div>
-    </div>
-
-    <!-- Modal for Adding Pokémon -->
-    <div id="addPokemonModal">
-      <form id="addPokemonForm">
-          <select for="pokemonName">Pokémon Name:</select>
-          <type="text" id="pokemonName" name="pokemonName" list="pokemonNames">
-          <datalist id="pokemonNames"></datalist>
-          <input type="submit" id="nextBtn" value="Next">
-      </form>
-      <button id="addPokemonCloseBtn">Close</button>
-    </div>
-       <!-- Second Modal for Additional Details -->
-    <div id="addDetailsModal">
-        <form id="addDetailsForm">
-            <label for="pokemonNickname">Nickname:</label>
-            <input type="text" id="pokemonNickname" name="pokemonNickname">
-    
-            <label for="pokemonLevel">Level:</label>
-            <input type="number" id="pokemonLevel" name="pokemonLevel">
-    
-            <label for="pokemonGender">Gender:</label>
-            <select id="pokemonGender" name="pokemonGender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="genderless">Genderless</option>
-            </select>
-    
-            <label for="pokemonForm">Form:</label>
-            <input type="text" id="pokemonForm" name="pokemonForm" list="pokemonFormNames">
-            <datalist id="pokemonFormNames">
-
-            </datalist>
-    
-            <label for="pokemonShiny">Shiny:</label>
-            <input type="checkbox" id="pokemonShiny" name="pokemonShiny">
-    
-            <label for="pokemonAbility">Ability:</label>
-            <input type="text" id="pokemonAbility" name="pokemonAbility" list="pokemonAbilities">
-            <datalist id="pokemonAbilities">
-
-            </datalist>
-
-            <label for="pokemonNatures">Nature:</label>
-            <select id="pokemon-nature" name="pokemon-nature"></select>
-            <option value=""></option>
-            <label for="pokemonMoves">Moves:</label>
-            <input type="text" placeholder="Move 1" name="pokemonMoves[]">
-            <input type="text" placeholder="Move 2" name="pokemonMoves[]">
-            <input type="text" placeholder="Move 3" name="pokemonMoves[]">
-            <input type="text" placeholder="Move 4" name="pokemonMoves[]">
-    
-            <label for="pokemonIV">IVs:</label>
-            <input type="text" id="hpIV" placeholder="HP" name="hp">
-            <input type="text" id="atkIV" placeholder="Atk" name="atk">
-            <input type="text" id="defIV" placeholder="Def" name="def">
-            <input type="text" id="spatkIV" placeholder="Sp. Atk" name="spatk">
-            <input type="text" id="spdefIV" placeholder="Sp. Def" name="spdef">
-            <input type="text" id="speIV" placeholder="Speed" name="spe">
-    
-            <label for="pokemonGame">Game:</label>
-            <input type="text" id="pokemonGame" name="pokemonGame">
-    
-            <label for="pokemonLocation">Location:</label>
-            <input type="text" id="pokemonLocation" name="pokemonLocation">
-    
-            <label for="pokemonBall">Ball:</label>
-            <input type="text" id="pokemonBall" name="pokemonBall">
-    
-            <input type="submit" value="Add Pokémon">
-        </form>
-    </div>
-    <div id="addPokemonSuccessModal">
-        <h2>Pokémon Added!</h2>
-        <button id="addPokemonSuccessCloseBtn">Close</button>
+  <div class="controls">
+    <button id="btn-list" class="active">List View</button>
+    <button id="btn-card">Card View</button>
+    <button id="btn-add">+ Add Pokémon</button>
   </div>
-<script src="src/js/pokemonData.js"></script>
-<script src="src/js/pokemonLocation.js"></script>
-<script src="src/js/pokemonMoves.js"></script>
-<script src="src/js/dropdownData.js"></script>
-<script src="js/pokemonData.js"></script> 
-<script src="js/main.js"></script>
-<script src="js/search.js"></script>
-<script src="src/js/search.js"></script>
-<script src="src/js/formHandler.js"></script>
-<script src="src/js/main.js"></script>
+
+  <div id="add-form">
+    <h2>Add Pokémon</h2>
+    <form id="pokemon-form">
+      <label>Pokémon Name:</label>
+      <input type="text" id="name" required />
+
+      <label>Nickname:</label>
+      <input type="text" id="nickname" />
+
+      <label>Ball:</label>
+      <input type="text" id="ball" placeholder="e.g., Premier Ball" />
+
+      <label>Location:</label>
+      <input type="text" id="location" placeholder="e.g., Route 128" />
+
+      <label>Game:</label>
+      <input type="text" id="game" placeholder="e.g., Omega Ruby" />
+
+      <button type="submit">Add to Dex</button>
+    </form>
+  </div>
+
+  <div id="status"></div>
+
+  <!-- List View -->
+  <table id="list-view">
+    <thead>
+      <tr>
+        <th>Pokémon</th>
+        <th>Nickname</th>
+        <th>Ball</th>
+        <th>Location</th>
+        <th>Game</th>
+      </tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+
+  <!-- Card View -->
+  <div id="card-view" class="card-container hidden"></div>
+
+  <script>
+    // Data persistence
+    let pokemonList = JSON.parse(localStorage.getItem('sldPokemon')) || [];
+
+    // DOM elements
+    const form = document.getElementById('pokemon-form');
+    const addForm = document.getElementById('add-form');
+    const btnAdd = document.getElementById('btn-add');
+    const btnList = document.getElementById('btn-list');
+    const btnCard = document.getElementById('btn-card');
+    const listView = document.getElementById('list-view');
+    const cardView = document.getElementById('card-view');
+    const tableBody = document.getElementById('table-body');
+    const status = document.getElementById('status');
+
+    // Render functions
+    function renderList() {
+      tableBody.innerHTML = '';
+      pokemonList.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${p.name}</td>
+          <td>${p.nickname || '-'}</td>
+          <td>${p.ball || '-'}</td>
+          <td>${p.location || '-'}</td>
+          <td>${p.game || '-'}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function renderCards() {
+      cardView.innerHTML = '';
+      pokemonList.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${p.name}</h3>
+          <p><strong>Nickname:</strong> ${p.nickname || 'None'}</p>
+          <p><strong>Ball:</strong> ${p.ball || 'Unknown'}</p>
+          <p><strong>Location:</strong> ${p.location || 'Unknown'}</p>
+          <p><strong>Game:</strong> ${p.game || 'Unknown'}</p>
+        `;
+        cardView.appendChild(card);
+      });
+    }
+
+    function renderAll() {
+      renderList();
+      renderCards();
+      status.textContent = pokemonList.length ? `${pokemonList.length} Pokémon tracked` : 'No Pokémon added yet';
+    }
+
+    // Event listeners - FIXED
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAll();
+
+      // Toggle add form
+      btnAdd.addEventListener('click', () => {
+        addForm.classList.toggle('hidden');
+      });
+
+      // Form submit - prevent reload, add, save, clear
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const newMon = {
+          name: document.getElementById('name').value.trim(),
+          nickname: document.getElementById('nickname').value.trim(),
+          ball: document.getElementById('ball').value.trim(),
+          location: document.getElementById('location').value.trim(),
+          game: document.getElementById('game').value.trim()
+        };
+        if (!newMon.name) return alert('Pokémon name is required!');
+        pokemonList.push(newMon);
+        localStorage.setItem('sldPokemon', JSON.stringify(pokemonList));
+        form.reset();
+        addForm.classList.add('hidden');
+        renderAll();
+        status.textContent = 'Pokémon added!';
+        setTimeout(() => status.textContent = '', 3000);
+      });
+
+      // View toggle
+      btnList.addEventListener('click', () => {
+        listView.classList.remove('hidden');
+        cardView.classList.add('hidden');
+        btnList.classList.add('active');
+        btnCard.classList.remove('active');
+      });
+
+      btnCard.addEventListener('click', () => {
+        listView.classList.add('hidden');
+        cardView.classList.remove('hidden');
+        btnCard.classList.add('active');
+        btnList.classList.remove('active');
+      });
+    });
+  </script>
 </body>
 </html>
